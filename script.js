@@ -361,7 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const btnContainer = document.createElement("div");
       btnContainer.className = "col-span-full flex justify-center mt-8 animate-fadeIn";
       btnContainer.innerHTML = `
-        <button onclick="revealAllFeatures()" class="btn-register-cta btn-glow-red bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold py-3.5 px-8 rounded-full text-xs transition-all shadow-none border-none">
+        <button onclick="revealAllFeatures()" class="btn-glow-red bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold py-3.5 px-8 rounded-full text-xs transition-all shadow-none border-none">
           Lihat Semua Fitur (${filtered.length} Fitur) <i class="fas fa-chevron-down ml-2"></i>
         </button>
       `;
