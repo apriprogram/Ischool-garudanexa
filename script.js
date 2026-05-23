@@ -600,14 +600,14 @@ document.addEventListener("DOMContentLoaded", () => {
     menuGridEl.innerHTML = "";
     menuItems.forEach(item => {
       const card = document.createElement("div");
-      card.className = "glass-panel p-2 rounded-lg cursor-pointer hover:border-red-500/40 hover:bg-red-500/5 transition-all flex flex-col justify-between h-28";
+      card.className = "glass-panel rounded-lg cursor-pointer hover:border-red-500/40 hover:bg-red-500/5 transition-all flex flex-col justify-between h-[115px] overflow-hidden border border-white/5";
       card.innerHTML = `
-        <div class="relative w-full h-12 rounded-md overflow-hidden bg-black/10 flex-shrink-0">
+        <div class="relative w-full h-12 bg-black/10 flex-shrink-0">
           <img src="${item.img}" alt="${item.nama}" class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
-        <div class="mt-1 flex-1 flex flex-col justify-between min-w-0">
+        <div class="p-2 flex-grow flex flex-col justify-between min-w-0">
           <h4 class="text-[9px] font-bold text-gray-700 dark:text-gray-200 truncate leading-tight" title="${item.nama}">${item.nama}</h4>
-          <div class="flex items-center justify-between mt-0.5">
+          <div class="flex items-center justify-between mt-1">
             <span class="text-[9px] text-red-500 font-extrabold">Rp ${item.harga.toLocaleString('id-ID')}</span>
             <button class="w-5 h-5 rounded bg-red-500/10 text-red-500 text-[9px] flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors font-bold flex-shrink-0" onclick="event.stopPropagation(); addToCart(item);">
               <i class="fas fa-plus"></i>
