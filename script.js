@@ -1343,15 +1343,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.generateAiExam = function() {
     const btn = document.getElementById("btn-generate-ai");
-    const input = document.getElementById("ai-material-input");
     const resultContainer = document.getElementById("ai-simulator-result");
     
     if (!btn) return;
-    const text = input ? input.value.trim() : "";
-    if (!text) {
-      alert("Silakan ketik atau pilih materi pelajaran terlebih dahulu!");
-      return;
-    }
 
     // Disable button & animate loading
     btn.disabled = true;
