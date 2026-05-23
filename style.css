@@ -581,7 +581,7 @@ body.light-theme #mobile-menu .border-white\/10 {
   color: #1f2937 !important;
 }
 
-body.light-theme #mobile-menu .text-center {
+body.light-theme #mobile-menu a.text-center {
   color: #1f2937 !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
 }
@@ -1137,6 +1137,13 @@ body.light-theme .ai-topic-pill:hover {
 }
 
 /* Active Highlighted States */
+
+/* Hero title white theme */
+/* Dark mode: active hero tab text should be dark (instead of white) */
+body:not(.light-theme) .hero-slider-nav-item.active .font-semibold {
+  color: #111827 !important; /* dark gray */
+}
+
 .ai-topic-pill.active {
   background-color: rgba(204, 0, 1, 0.18) !important;
   color: #ff4d4f !important;
@@ -1151,5 +1158,25 @@ body.light-theme .ai-topic-pill.active {
   font-weight: 600 !important;
 }
 
+/* ==== Dark Mode Text Brightness Overrides ==== */
+/* Memastikan teks abu-abu yang terlalu gelap menjadi lebih terang di Dark Mode */
+body:not(.light-theme) .text-gray-900,
+body:not(.light-theme) .text-gray-800,
+body:not(.light-theme) .text-gray-700,
+body:not(.light-theme) .text-gray-600,
+body:not(.light-theme) .text-gray-500 {
+  color: #9ca3af !important; /* Setara dengan tailwind gray-400 */
+}
 
+body:not(.light-theme) .text-gray-400 {
+  color: #d1d5db !important; /* Setara dengan tailwind gray-300 */
+}
 
+/* Sembunyikan scrollbar untuk area yang bisa discroll (seperti tab-bar) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
