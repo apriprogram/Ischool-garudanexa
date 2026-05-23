@@ -1,0 +1,410 @@
+{
+  "matematika": [
+    {
+      "question": "Jika f(x) = 2x + 3 dan g(x) = x^2 - 1, berapakah nilai (f ∘ g)(2)?",
+      "options": [
+        { "label": "A. 9", "correct": true },
+        { "label": "B. 7", "correct": false },
+        { "label": "C. 5", "correct": false },
+        { "label": "D. 11", "correct": false }
+      ],
+      "explanation": "g(2) = 2^2 - 1 = 3. Maka f(g(2)) = f(3) = 2(3) + 3 = 9."
+    },
+    {
+      "question": "Berapakah turunan pertama dari fungsi f(x) = 3x^2 - 4x + 5?",
+      "options": [
+        { "label": "A. 6x - 4", "correct": true },
+        { "label": "B. 6x", "correct": false },
+        { "label": "C. 3x - 4", "correct": false },
+        { "label": "D. 6x + 5", "correct": false }
+      ],
+      "explanation": "Turunan 3x^2 adalah 6x, turunan -4x adalah -4, dan turunan konstanta 5 adalah 0."
+    },
+    {
+      "question": "Berapakah nilai dari lim (x -> 3) (x^2 - 9) / (x - 3)?",
+      "options": [
+        { "label": "A. 6", "correct": true },
+        { "label": "B. 3", "correct": false },
+        { "label": "C. 0", "correct": false },
+        { "label": "D. Tak hingga", "correct": false }
+      ],
+      "explanation": "Faktorkan pembilang menjadi (x-3)(x+3). Coret (x-3), tersisa (x+3). Substitusikan x=3, didapat 3+3 = 6."
+    },
+    {
+      "question": "Dalam kotak ada 5 bola merah & 3 biru. Diambil 2 bola acak, berapakah peluang keduanya bola merah?",
+      "options": [
+        { "label": "A. 5/14", "correct": true },
+        { "label": "B. 5/8", "correct": false },
+        { "label": "C. 25/64", "correct": false },
+        { "label": "D. 15/28", "correct": false }
+      ],
+      "explanation": "Kombinasi 2 bola merah dari 5: C(5,2)=10. Total cara ambil 2 bola dari 8: C(8,2)=28. Peluang = 10/28 = 5/14."
+    },
+    {
+      "question": "Diketahui matriks A = [[2, 3], [1, 4]]. Berapakah determinan dari matriks A?",
+      "options": [
+        { "label": "A. 5", "correct": true },
+        { "label": "B. 11", "correct": false },
+        { "label": "C. -5", "correct": false },
+        { "label": "D. 8", "correct": false }
+      ],
+      "explanation": "Determinan ad - bc = (2)(4) - (3)(1) = 8 - 3 = 5."
+    },
+    {
+      "question": "Berapakah nilai dari integral (6x^2 - 2x) dx?",
+      "options": [
+        { "label": "A. 2x^3 - x^2 + C", "correct": true },
+        { "label": "B. 3x^3 - 2x^2 + C", "correct": false },
+        { "label": "C. 6x^3 - 2x^2 + C", "correct": false },
+        { "label": "D. 2x^3 - 2x^2 + C", "correct": false }
+      ],
+      "explanation": "Integral dari 6x^2 adalah 2x^3, integral dari -2x adalah -x^2. Ditambah konstanta C."
+    },
+    {
+      "question": "Persamaan kuadrat x^2 - 5x + 6 = 0 memiliki akar x1 dan x2. Berapakah nilai x1 + x2?",
+      "options": [
+        { "label": "A. 5", "correct": true },
+        { "label": "B. -5", "correct": false },
+        { "label": "C. 6", "correct": false },
+        { "label": "D. -6", "correct": false }
+      ],
+      "explanation": "Menurut rumus Vieta, jumlah akar-akar x1 + x2 = -b/a = -(-5)/1 = 5."
+    },
+    {
+      "question": "Berapakah nilai dari logaritma log2(32)?",
+      "options": [
+        { "label": "A. 5", "correct": true },
+        { "label": "B. 4", "correct": false },
+        { "label": "C. 6", "correct": false },
+        { "label": "D. 16", "correct": false }
+      ],
+      "explanation": "Karena 2^5 = 32, maka log2(32) = 5."
+    },
+    {
+      "question": "Sebuah segitiga siku-siku memiliki sisi tegak 8 cm dan alas 6 cm. Berapa panjang sisi miringnya?",
+      "options": [
+        { "label": "A. 10 cm", "correct": true },
+        { "label": "B. 14 cm", "correct": false },
+        { "label": "C. 12 cm", "correct": false },
+        { "label": "D. 9 cm", "correct": false }
+      ],
+      "explanation": "Menggunakan teorema Pythagoras: akar(8^2 + 6^2) = akar(64 + 36) = akar(100) = 10 cm."
+    },
+    {
+      "question": "Berapakah banyaknya diagonal bidang pada sebuah kubus?",
+      "options": [
+        { "label": "A. 12", "correct": true },
+        { "label": "B. 6", "correct": false },
+        { "label": "C. 8", "correct": false },
+        { "label": "D. 4", "correct": false }
+      ],
+      "explanation": "Kubus memiliki 6 sisi, masing-masing memiliki 2 diagonal bidang. Total = 6 x 2 = 12 diagonal."
+    }
+  ],
+  "kimia": [
+    {
+      "question": "Manakah unsur berikut yang termasuk dalam golongan gas mulia?",
+      "options": [
+        { "label": "A. Helium", "correct": true },
+        { "label": "B. Hidrogen", "correct": false },
+        { "label": "C. Oksigen", "correct": false },
+        { "label": "D. Nitrogen", "correct": false }
+      ],
+      "explanation": "Golongan VIII A (Gas Mulia) terdiri dari Helium (He), Neon (Ne), Argon (Ar), Kripton (Kr), Xenon (Xe), dan Radon (Rn)."
+    },
+    {
+      "question": "Berapakah nilai pH dari larutan asam kuat pada umumnya?",
+      "options": [
+        { "label": "A. < 7", "correct": true },
+        { "label": "B. > 7", "correct": false },
+        { "label": "C. 7", "correct": false },
+        { "label": "D. 14", "correct": false }
+      ],
+      "explanation": "Larutan asam memiliki nilai pH kurang dari 7, larutan basa lebih dari 7, dan larutan netral pH = 7."
+    },
+    {
+      "question": "Apakah nama senyawa kimia dengan rumus molekul NaCl?",
+      "options": [
+        { "label": "A. Natrium Klorida", "correct": true },
+        { "label": "B. Natrium Karbonat", "correct": false },
+        { "label": "C. Kalium Klorida", "correct": false },
+        { "label": "D. Kalsium Klorida", "correct": false }
+      ],
+      "explanation": "NaCl terbentuk dari kation Natrium (Na+) dan anion Klorida (Cl-), membentuk garam dapur Natrium Klorida."
+    },
+    {
+      "question": "Partikel penyusun inti atom yang bermuatan positif disebut dengan...",
+      "options": [
+        { "label": "A. Proton", "correct": true },
+        { "label": "B. Elektron", "correct": false },
+        { "label": "C. Neutron", "correct": false },
+        { "label": "D. Positron", "correct": false }
+      ],
+      "explanation": "Inti atom terdiri atas Proton (bermuatan positif) dan Neutron (netral), sedangkan Elektron (negatif) mengelilingi inti."
+    },
+    {
+      "question": "Proses perubahan wujud zat dari padat langsung menjadi gas dinamakan...",
+      "options": [
+        { "label": "A. Menyublim", "correct": true },
+        { "label": "B. Menguap", "correct": false },
+        { "label": "C. Mengkristal", "correct": false },
+        { "label": "D. Mencair", "correct": false }
+      ],
+      "explanation": "Menyublim adalah perubahan wujud zat padat menjadi gas tanpa melalui fase cair terlebih dahulu."
+    },
+    {
+      "question": "Manakah rumus kimia yang tepat untuk senyawa air?",
+      "options": [
+        { "label": "A. H2O", "correct": true },
+        { "label": "B. CO2", "correct": false },
+        { "label": "C. H2SO4", "correct": false },
+        { "label": "D. CH4", "correct": false }
+      ],
+      "explanation": "Air terdiri dari dua atom Hidrogen dan satu atom Oksigen (H2O)."
+    },
+    {
+      "question": "Apakah hukum dasar kimia yang menyatakan bahwa massa zat sebelum dan sesudah reaksi adalah sama?",
+      "options": [
+        { "label": "A. Hukum Kekekalan Massa", "correct": true },
+        { "label": "B. Hukum Perbandingan Tetap", "correct": false },
+        { "label": "C. Hukum Kelipatan Perbandingan", "correct": false },
+        { "label": "D. Hukum Avogadro", "correct": false }
+      ],
+      "explanation": "Lavoisier merumuskan Hukum Kekekalan Massa yang menyatakan total massa reaktan sama dengan total massa produk."
+    },
+    {
+      "question": "Reaksi kimia yang membebaskan kalor dari sistem ke lingkungan disebut...",
+      "options": [
+        { "label": "A. Reaksi Eksoterm", "correct": true },
+        { "label": "B. Reaksi Endoterm", "correct": false },
+        { "label": "C. Reaksi Adisi", "correct": false },
+        { "label": "D. Reaksi Reduksi", "correct": false }
+      ],
+      "explanation": "Reaksi eksoterm membebaskan energi panas (kalor) sehingga suhu lingkungan mengalami peningkatan."
+    },
+    {
+      "question": "Jenis ikatan kimia akibat serah terima elektron antara unsur logam dan non-logam adalah...",
+      "options": [
+        { "label": "A. Ikatan Ion", "correct": true },
+        { "label": "B. Ikatan Kovalen", "correct": false },
+        { "label": "C. Ikatan Logam", "correct": false },
+        { "label": "D. Ikatan Hidrogen", "correct": false }
+      ],
+      "explanation": "Ikatan ion terjadi karena adanya gaya elektrostatis antara ion positif (logam) dan ion negatif (non-logam) hasil transfer elektron."
+    },
+    {
+      "question": "Manakah indikator asam-basa alami berikut yang paling umum digunakan?",
+      "options": [
+        { "label": "A. Ekstrak kunyit", "correct": true },
+        { "label": "B. Metil jingga", "correct": false },
+        { "label": "C. Fenolftalein", "correct": false },
+        { "label": "D. Bromtimol biru", "correct": false }
+      ],
+      "explanation": "Ekstrak kunyit adalah salah satu indikator alami yang sering digunakan. Warnanya berubah menjadi merah kecoklatan dalam basa dan tetap kuning dalam asam."
+    }
+  ],
+  "biologi": [
+    {
+      "question": "Apakah organ pernapasan utama pada manusia?",
+      "options": [
+        { "label": "A. Paru-paru", "correct": true },
+        { "label": "B. Insang", "correct": false },
+        { "label": "C. Trakea", "correct": false },
+        { "label": "D. Kulit", "correct": false }
+      ],
+      "explanation": "Manusia bernapas menggunakan paru-paru untuk pertukaran oksigen dan karbon dioksida."
+    },
+    {
+      "question": "Proses tumbuhan membuat makanannya sendiri dengan bantuan cahaya matahari disebut...",
+      "options": [
+        { "label": "A. Fotosintesis", "correct": true },
+        { "label": "B. Respirasi", "correct": false },
+        { "label": "C. Transpirasi", "correct": false },
+        { "label": "D. Fermentasi", "correct": false }
+      ],
+      "explanation": "Fotosintesis adalah proses tumbuhan hijau mengubah air dan CO2 menjadi glukosa dengan energi cahaya."
+    },
+    {
+      "question": "Sel darah yang berfungsi mengangkut oksigen ke seluruh tubuh adalah...",
+      "options": [
+        { "label": "A. Eritrosit (Sel Darah Merah)", "correct": true },
+        { "label": "B. Leukosit (Sel Darah Putih)", "correct": false },
+        { "label": "C. Trombosit (Keping Darah)", "correct": false },
+        { "label": "D. Plasma Darah", "correct": false }
+      ],
+      "explanation": "Eritrosit mengandung hemoglobin yang mengikat oksigen untuk diedarkan ke seluruh tubuh."
+    },
+    {
+      "question": "Bagian sel yang berfungsi sebagai pusat kendali seluruh aktivitas sel adalah...",
+      "options": [
+        { "label": "A. Nukleus (Inti Sel)", "correct": true },
+        { "label": "B. Mitokondria", "correct": false },
+        { "label": "C. Ribosom", "correct": false },
+        { "label": "D. Lisosom", "correct": false }
+      ],
+      "explanation": "Nukleus mengandung DNA dan mengatur seluruh aktivitas metabolisme dan reproduksi sel."
+    },
+    {
+      "question": "Enzim ptialin yang terdapat pada air liur berfungsi untuk memecah...",
+      "options": [
+        { "label": "A. Amilum menjadi maltosa", "correct": true },
+        { "label": "B. Protein menjadi pepton", "correct": false },
+        { "label": "C. Lemak menjadi asam lemak", "correct": false },
+        { "label": "D. Maltosa menjadi glukosa", "correct": false }
+      ],
+      "explanation": "Enzim ptialin (amilase) di mulut memecah amilum (karbohidrat) menjadi maltosa."
+    },
+    {
+      "question": "Hewan yang dapat hidup di air maupun di darat digolongkan sebagai...",
+      "options": [
+        { "label": "A. Amfibi", "correct": true },
+        { "label": "B. Reptil", "correct": false },
+        { "label": "C. Mamalia", "correct": false },
+        { "label": "D. Aves", "correct": false }
+      ],
+      "explanation": "Amfibi (seperti katak) memiliki fase hidup di air dan di darat."
+    },
+    {
+      "question": "Penyakit yang disebabkan oleh kekurangan hormon insulin adalah...",
+      "options": [
+        { "label": "A. Diabetes melitus", "correct": true },
+        { "label": "B. Hipertensi", "correct": false },
+        { "label": "C. Anemia", "correct": false },
+        { "label": "D. Leukemia", "correct": false }
+      ],
+      "explanation": "Kekurangan insulin menyebabkan kadar gula darah tinggi yang dikenal sebagai diabetes melitus."
+    },
+    {
+      "question": "Peristiwa menempelnya serbuk sari di kepala putik dinamakan...",
+      "options": [
+        { "label": "A. Penyerbukan", "correct": true },
+        { "label": "B. Pembuahan", "correct": false },
+        { "label": "C. Perkecambahan", "correct": false },
+        { "label": "D. Pembiakan", "correct": false }
+      ],
+      "explanation": "Penyerbukan (polinasi) adalah jatuhnya serbuk sari ke kepala putik sebagai awal perkembangbiakan tumbuhan berbiji."
+    },
+    {
+      "question": "Organel sel yang berperan dalam respirasi sel untuk menghasilkan energi adalah...",
+      "options": [
+        { "label": "A. Mitokondria", "correct": true },
+        { "label": "B. Badan Golgi", "correct": false },
+        { "label": "C. Retikulum Endoplasma", "correct": false },
+        { "label": "D. Kloroplas", "correct": false }
+      ],
+      "explanation": "Mitokondria disebut sebagai 'the power house of cell' karena fungsinya menghasilkan energi (ATP)."
+    },
+    {
+      "question": "Bakteri Rhizobium yang bersimbiosis pada akar tanaman kacang-kacangan bermanfaat untuk...",
+      "options": [
+        { "label": "A. Mengikat nitrogen bebas", "correct": true },
+        { "label": "B. Menghasilkan racun", "correct": false },
+        { "label": "C. Mengikat oksigen", "correct": false },
+        { "label": "D. Memecah protein", "correct": false }
+      ],
+      "explanation": "Bakteri Rhizobium membantu menyuburkan tanah dengan memfiksasi (mengikat) nitrogen dari udara."
+    }
+  ],
+  "sejarah": [
+    {
+      "question": "Siapakah tokoh yang memproklamasikan kemerdekaan Indonesia bersama Ir. Soekarno?",
+      "options": [
+        { "label": "A. Drs. Moh. Hatta", "correct": true },
+        { "label": "B. Sutan Sjahrir", "correct": false },
+        { "label": "C. Ki Hajar Dewantara", "correct": false },
+        { "label": "D. Ahmad Subardjo", "correct": false }
+      ],
+      "explanation": "Teks proklamasi dibacakan oleh Soekarno, didampingi oleh Moh. Hatta pada tanggal 17 Agustus 1945."
+    },
+    {
+      "question": "Organisasi pergerakan nasional pertama di Indonesia yang didirikan pada tahun 1908 adalah...",
+      "options": [
+        { "label": "A. Budi Utomo", "correct": true },
+        { "label": "B. Sarekat Islam", "correct": false },
+        { "label": "C. Indische Partij", "correct": false },
+        { "label": "D. PNI", "correct": false }
+      ],
+      "explanation": "Budi Utomo didirikan pada 20 Mei 1908 oleh dr. Sutomo dkk, diperingati sebagai Hari Kebangkitan Nasional."
+    },
+    {
+      "question": "Kerajaan Hindu tertua di Indonesia yang terletak di Kutai, Kalimantan Timur adalah...",
+      "options": [
+        { "label": "A. Kerajaan Kutai", "correct": true },
+        { "label": "B. Kerajaan Tarumanegara", "correct": false },
+        { "label": "C. Kerajaan Majapahit", "correct": false },
+        { "label": "D. Kerajaan Sriwijaya", "correct": false }
+      ],
+      "explanation": "Kerajaan Kutai Martadipura adalah kerajaan Hindu tertua (sekitar abad ke-4 M) dibuktikan dengan prasasti Yupa."
+    },
+    {
+      "question": "Sistem tanam paksa yang diterapkan Belanda di Indonesia dikenal dengan istilah...",
+      "options": [
+        { "label": "A. Cultuurstelsel", "correct": true },
+        { "label": "B. Kerja Rodi", "correct": false },
+        { "label": "C. Romusha", "correct": false },
+        { "label": "D. Devide et Impera", "correct": false }
+      ],
+      "explanation": "Cultuurstelsel diterapkan oleh Gubernur Jenderal Johannes van den Bosch pada tahun 1830."
+    },
+    {
+      "question": "Perjanjian yang mengakhiri Konfrontasi Indonesia-Belanda dan menyerahkan kedaulatan kepada RIS adalah...",
+      "options": [
+        { "label": "A. Konferensi Meja Bundar (KMB)", "correct": true },
+        { "label": "B. Perjanjian Linggarjati", "correct": false },
+        { "label": "C. Perjanjian Renville", "correct": false },
+        { "label": "D. Perjanjian Roem-Royen", "correct": false }
+      ],
+      "explanation": "KMB diselenggarakan di Den Haag pada 1949, menghasilkan pengakuan kedaulatan Indonesia oleh Belanda."
+    },
+    {
+      "question": "Sumpah Palapa diucapkan oleh Mahapatih Majapahit yang bernama...",
+      "options": [
+        { "label": "A. Gajah Mada", "correct": true },
+        { "label": "B. Hayam Wuruk", "correct": false },
+        { "label": "C. Raden Wijaya", "correct": false },
+        { "label": "D. Ken Arok", "correct": false }
+      ],
+      "explanation": "Gajah Mada bersumpah tidak akan memakan buah palapa sebelum berhasil menyatukan seluruh Nusantara."
+    },
+    {
+      "question": "Pendiri Kesultanan Demak sebagai kerajaan Islam pertama di Pulau Jawa adalah...",
+      "options": [
+        { "label": "A. Raden Patah", "correct": true },
+        { "label": "B. Sultan Trenggono", "correct": false },
+        { "label": "C. Pati Unus", "correct": false },
+        { "label": "D. Sunan Kalijaga", "correct": false }
+      ],
+      "explanation": "Raden Patah adalah putra Brawijaya V yang mendirikan Kesultanan Demak Bintoro."
+    },
+    {
+      "question": "Peristiwa Rengasdengklok terjadi karena adanya perbedaan pendapat antara golongan muda dan golongan tua mengenai...",
+      "options": [
+        { "label": "A. Waktu pelaksanaan proklamasi", "correct": true },
+        { "label": "B. Tempat pembacaan proklamasi", "correct": false },
+        { "label": "C. Teks proklamasi", "correct": false },
+        { "label": "D. Tokoh yang membacakan proklamasi", "correct": false }
+      ],
+      "explanation": "Golongan muda mendesak proklamasi segera dilaksanakan, sedangkan golongan tua menunggu PPKI."
+    },
+    {
+      "question": "VOC (Vereenigde Oostindische Compagnie) didirikan pada tahun...",
+      "options": [
+        { "label": "A. 1602", "correct": true },
+        { "label": "B. 1596", "correct": false },
+        { "label": "C. 1619", "correct": false },
+        { "label": "D. 1800", "correct": false }
+      ],
+      "explanation": "Kongsi dagang Belanda VOC resmi didirikan pada tanggal 20 Maret 1602."
+    },
+    {
+      "question": "Pemimpin perlawanan rakyat Maluku terhadap Belanda pada tahun 1817 adalah...",
+      "options": [
+        { "label": "A. Kapitan Pattimura", "correct": true },
+        { "label": "B. Pangeran Diponegoro", "correct": false },
+        { "label": "C. Tuanku Imam Bonjol", "correct": false },
+        { "label": "D. Sultan Hasanuddin", "correct": false }
+      ],
+      "explanation": "Thomas Matulessy atau Kapitan Pattimura memimpin perlawanan besar di Saparua, Maluku."
+    }
+  ]
+}
