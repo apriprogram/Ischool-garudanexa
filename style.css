@@ -1064,8 +1064,12 @@ body.light-theme .category-filter-btn.active {
   }
 
   .faq-answer {
-    padding: 0 1rem 1.15rem 1rem !important;
+    padding: 0 1rem 0 1rem !important; /* No padding-bottom when collapsed */
     font-size: 0.775rem !important; /* snug answer fonts */
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 1rem 1.15rem 1rem !important; /* Apply padding-bottom only when active */
   }
 
   /* Mobile Double Selectors Spacing (closer to cards) */
