@@ -1085,5 +1085,18 @@ body.light-theme .category-filter-btn.active {
   }
 }
 
+/* AI Simulator active topic pill styling */
+.ai-topic-pill.active {
+  background-color: rgba(204, 0, 1, 0.2) !important;
+  color: #ff3b3c !important;
+  border-color: rgba(204, 0, 1, 0.4) !important;
+}
+
+body.light-theme .ai-topic-pill.active {
+  background-color: rgba(204, 0, 1, 0.08) !important;
+  color: #cc0001 !important;
+  border-color: rgba(204, 0, 1, 0.25) !important;
+}
+
 
 

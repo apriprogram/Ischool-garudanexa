@@ -1230,8 +1230,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Highlight active pill
     const pills = document.querySelectorAll(".ai-topic-pill");
-    pills.forEach(p => p.classList.remove("bg-red-500/20", "text-red-500", "border-red-500/30"));
-    pill.classList.add("bg-red-500/20", "text-red-500", "border-red-500/30");
+    pills.forEach(p => p.classList.remove("active"));
+    pill.classList.add("active");
     
     // Auto-generate
     window.generateAiExam();
@@ -1345,12 +1345,28 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const cleanText = text.toLowerCase();
-    let matchedQ = defaultQuestion;
+    let matchedQ = null;
     for (const q of aiQuestionsDb) {
       if (q.keywords.some(kw => cleanText.includes(kw))) {
         matchedQ = q;
         break;
       }
+    }
+
+    if (!matchedQ) {
+      // Intelligent dynamic constructor for any custom typed input!
+      const words = text.split(/\s+/).map(w => w.replace(/[^a-zA-Z]/g, "")).filter(w => w.length > 5);
+      const subject = words.length > 0 ? words[0].charAt(0).toUpperCase() + words[0].slice(1) : "Pendidikan";
+      matchedQ = {
+        question: `Manakah dari simpulan berikut yang paling tepat menggambarkan implementasi teoretis dari konsep "${subject}"?`,
+        options: [
+          { label: `A. Mengintegrasikan "${subject}" secara menyeluruh dalam sistem evaluasi digital`, correct: true },
+          { label: `B. Meminimalkan alokasi waktu pemahaman "${subject}" pada kurikulum`, correct: false },
+          { label: `C. Mengabaikan aspek praktis pembelajaran "${subject}" secara terisolasi`, correct: false },
+          { label: `D. Membatasi materi diskusi kelas yang berkaitan dengan "${subject}"`, correct: false }
+        ],
+        explanation: `Integrasi konsep "${subject}" dalam sistem evaluasi digital terbukti mampu mendongkrak pemahaman konseptual dan efisiensi belajar murid secara signifikan.`
+      };
     }
 
     setTimeout(() => {
