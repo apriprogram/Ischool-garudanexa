@@ -678,12 +678,73 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartUI();
   };
 
+  // High fidelity custom animated notification helper
+  function showCustomAlert(status, title, message) {
+    const existing = document.getElementById("custom-cashier-alert");
+    if (existing) existing.remove();
+
+    const alertBox = document.createElement("div");
+    alertBox.id = "custom-cashier-alert";
+    alertBox.className = "fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-md opacity-0 transition-opacity duration-300 pointer-events-none";
+    
+    const isSuccess = status === "success";
+    const iconClass = isSuccess ? "fa-check-double text-emerald-500 dark:text-emerald-400" : "fa-exclamation-triangle text-red-500";
+    const iconBg = isSuccess ? "bg-emerald-500/10 border-emerald-500/20" : "bg-red-500/10 border-red-500/20";
+    
+    alertBox.innerHTML = `
+      <div class="glass-card p-8 rounded-xl max-w-sm w-full text-center border border-white/10 shadow-2xl transform scale-90 translate-y-6 opacity-0 transition-all duration-300">
+        <div class="w-14 h-14 ${iconBg} border rounded-full flex items-center justify-center text-2xl mx-auto mb-5 shadow-lg shadow-black/10">
+          <i class="fas ${iconClass}"></i>
+        </div>
+        <h3 class="text-xl font-black tracking-tight mb-2 text-gray-900 dark:text-white">${title}</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+          ${message}
+        </p>
+        <button class="btn-glow-red bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold py-2.5 px-6 rounded-lg w-full text-[11px] transition-all cursor-pointer shadow-lg shadow-red-500/20">
+          Oke, Mengerti
+        </button>
+      </div>
+    `;
+    
+    document.body.appendChild(alertBox);
+    
+    // Reflow
+    alertBox.offsetHeight;
+    
+    alertBox.classList.remove("opacity-0", "pointer-events-none");
+    alertBox.classList.add("opacity-100");
+    
+    const innerCard = alertBox.querySelector(".glass-card");
+    innerCard.classList.remove("scale-90", "translate-y-6", "opacity-0");
+    innerCard.classList.add("scale-100", "translate-y-0", "opacity-100");
+    
+    // Spring physics transition curves
+    innerCard.style.transitionTimingFunction = "cubic-bezier(0.34, 1.56, 0.64, 1)";
+
+    const closeAlert = () => {
+      alertBox.classList.remove("opacity-100");
+      alertBox.classList.add("opacity-0", "pointer-events-none");
+      innerCard.classList.remove("scale-100", "translate-y-0", "opacity-100");
+      innerCard.classList.add("scale-90", "translate-y-6", "opacity-0");
+      setTimeout(() => alertBox.remove(), 300);
+    };
+
+    alertBox.querySelector("button").addEventListener("click", closeAlert);
+    alertBox.addEventListener("click", (e) => {
+      if (e.target === alertBox) closeAlert();
+    });
+  }
+
   if (posCheckoutBtn) {
     posCheckoutBtn.addEventListener("click", () => {
       let subtotal = cart.reduce((acc, item) => acc + (item.harga * item.qty), 0);
       
       if (ewalletBalance < subtotal) {
-        alert("E-Wallet Gagal: Saldo siswa tidak mencukupi untuk melakukan transaksi kantin ini!");
+        showCustomAlert(
+          "error", 
+          "Transaksi Kantin Gagal", 
+          `Saldo E-Wallet siswa tidak mencukupi untuk transaksi sebesar <span class="text-red-500 font-extrabold">Rp ${subtotal.toLocaleString('id-ID')}</span>. Saldo Anda saat ini adalah <span class="text-emerald-600 dark:text-emerald-400 font-extrabold">Rp ${ewalletBalance.toLocaleString('id-ID')}</span>.`
+        );
         return;
       }
 
@@ -695,29 +756,11 @@ document.addEventListener("DOMContentLoaded", () => {
       cart = [];
       updateCartUI();
 
-      // Show high fidelity modern alert
-      const alertBox = document.createElement("div");
-      alertBox.className = "fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/75 backdrop-blur-md";
-      alertBox.innerHTML = `
-        <div class="glass-card p-8 rounded-xl max-w-md w-full text-center border-emerald-500/20 floating-widget">
-          <div class="w-16 h-16 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-            <i class="fas fa-check-double"></i>
-          </div>
-          <h3 class="text-2xl font-semibold text-gradient-red mb-2">Transaksi Kantin Berhasil!</h3>
-          <p class="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6 leading-relaxed">
-            Pembayaran total <span class="text-emerald-400 font-semibold">Rp ${subtotal.toLocaleString('id-ID')}</span> berhasil didebit dari E-Wallet Siswa menggunakan kartu tap RFID. Struk belanja otomatis terkirim via WhatsApp wali murid!
-          </p>
-          <button class="btn-glow-red bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-semibold py-2.5 px-6 rounded-lg w-full text-sm">
-            Kembali ke Kantin
-          </button>
-        </div>
-      `;
-      document.body.appendChild(alertBox);
-      
-      const btn = alertBox.querySelector("button");
-      btn.addEventListener("click", () => {
-        alertBox.remove();
-      });
+      showCustomAlert(
+        "success", 
+        "Transaksi Kantin Berhasil!", 
+        `Pembayaran total <span class="text-emerald-600 dark:text-emerald-400 font-extrabold">Rp ${subtotal.toLocaleString('id-ID')}</span> berhasil didebit secepat kilat dengan tapping kartu RFID E-Wallet Siswa. Struk digital otomatis dikirim via WhatsApp wali murid!`
+      );
     });
   }
 
