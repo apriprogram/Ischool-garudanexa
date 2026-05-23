@@ -1403,6 +1403,56 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 700);
     }, 700);
   };
+
+  // --- CBT Section Spotlight Tab Switcher ---
+  const cbtSecTabs = document.querySelectorAll(".cbt-sec-tab-btn");
+  const cbtSecPanels = document.querySelectorAll(".cbt-section-panel");
+
+  cbtSecTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      cbtSecTabs.forEach(t => t.classList.remove("active", "border-red-500", "text-red-500"));
+      cbtSecPanels.forEach(p => p.classList.add("hidden"));
+
+      tab.classList.add("active", "border-red-500", "text-red-500");
+      const targetId = tab.getAttribute("data-target");
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.remove("hidden");
+        targetPanel.classList.add("animate-fadeIn");
+      }
+    });
+  });
+
+  // --- CBT Ujian Siswa click option logic ---
+  window.clickCbtSecOption = function(btn) {
+    const container = btn.closest("#cbt-sec-quiz-box");
+    if (!container) return;
+    
+    const optBtns = container.querySelectorAll(".ai-opt-btn");
+    const insightEl = container.querySelector("#cbt-sec-ai-insight");
+    const isCorrect = btn.getAttribute("data-correct") === "true";
+    
+    optBtns.forEach(b => {
+      b.classList.remove("bg-emerald-500/10", "border-emerald-500/30", "text-emerald-500", "bg-red-500/10", "border-red-500/30", "text-red-500");
+      b.querySelector("i").classList.add("hidden");
+    });
+
+    if (isCorrect) {
+      btn.classList.add("bg-emerald-500/10", "border-emerald-500/30", "text-emerald-500");
+      btn.querySelector(".fa-check").classList.remove("hidden");
+      if (insightEl) {
+        insightEl.classList.remove("hidden");
+        insightEl.querySelector("p").innerHTML = `<strong>Anti-Cheat CBT:</strong> Kunci browser siswa mendeteksi 100% fokus penuh selama pengerjaan kuis Fotosintesis ini!`;
+      }
+    } else {
+      btn.classList.add("bg-red-500/10", "border-red-500/30", "text-red-500");
+      btn.querySelector(".fa-times").classList.remove("hidden");
+      if (insightEl) {
+        insightEl.classList.remove("hidden");
+        insightEl.querySelector("p").innerHTML = `<strong>Peringatan AI:</strong> Jawaban salah! Tumbuhan melakukan fotosintesis di kloroplas yang mengandung klorofil.`;
+      }
+    }
+  };
 });
 
 

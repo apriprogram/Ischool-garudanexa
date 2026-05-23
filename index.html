@@ -712,8 +712,8 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
       
-      <!-- Text side -->
-      <div class="lg:col-span-6 space-y-6">
+      <!-- Left Column: Text side (Changed from lg:col-span-6 to lg:col-span-5 to exactly match Coba Simulasi!) -->
+      <div class="lg:col-span-5 space-y-6">
         <span class="text-xs font-bold text-red-500 uppercase tracking-widest">Sorotan Fitur Ujian</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
           Sistem Ujian Online (CBT) & <span class="text-gradient-red">AI Pintar Generator Soal</span>
@@ -748,82 +748,147 @@
         </button>
       </div>
 
-      <!-- Graphical Mockup side -->
-      <div class="lg:col-span-6">
-        <div class="glass-card p-6 md:p-8 rounded-xl relative border border-white/10 overflow-hidden">
+      <!-- Right Column: Graphical Mockup side (Changed from lg:col-span-6 to lg:col-span-7 flex flex-col gap-6 to exactly match Coba Simulasi!) -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        
+        <!-- CBT Section Tab Switcher (Matching Coba Simulasi layout) -->
+        <div class="w-full glass-panel p-2 rounded-lg flex flex-wrap md:flex-nowrap gap-2 border border-white/5">
+          <button class="cbt-sec-tab-btn active flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-target="cbt-panel-generator">
+            <i class="fas fa-wand-magic-sparkles"></i> AI Generator Soal
+          </button>
+          <button class="cbt-sec-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-target="cbt-panel-student">
+            <i class="fas fa-laptop-code"></i> CBT Ujian Siswa
+          </button>
+        </div>
+
+        <!-- Main Display Frosted Box (Matching Coba Simulasi min-h-[460px] layout) -->
+        <div class="w-full glass-card p-6 md:p-8 rounded-xl min-h-[460px] flex flex-col justify-between relative overflow-hidden">
           
-          <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-red-500/5 rounded-full filter blur-2xl pointer-events-none"></div>
+          <!-- Widget Glow ring background -->
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-red-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
 
-          <!-- Mockup top bar -->
-          <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-5">
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-red-500"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-              <span class="w-3 h-3 rounded-full bg-green-500"></span>
-              <span class="text-xs font-bold text-gray-400 ml-2">ISchool AI Generator</span>
-            </div>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 font-semibold border border-red-500/20">AI Active</span>
-          </div>
-
-          <!-- Mockup inner content -->
-          <div class="space-y-4 text-xs" id="ai-simulator-container">
-            <!-- Topic selector pills -->
-            <div class="space-y-1.5">
-              <p class="text-gray-400 font-medium">Pilih Topik Cepat:</p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.">
-                  Fotosintesis
-                </button>
-                <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Hukum gravitasi Newton menyatakan gaya tarik gravitasi dua benda sebanding dengan massa masing-masing dan berbanding terbalik dengan kuadrat jarak keduanya.">
-                  Gravitasi
-                </button>
-                <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Proklamasi Kemerdekaan Indonesia dibacakan oleh Soekarno pada tanggal 17 Agustus 1945 di Jalan Pegangsaan Timur No. 56, Jakarta.">
-                  Kemerdekaan RI
-                </button>
+          <!-- PANEL 1: AI GENERATOR SOAL (TEACHER PANEL) -->
+          <div id="cbt-panel-generator" class="cbt-section-panel space-y-4 animate-fadeIn">
+            <!-- Mockup top bar -->
+            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span class="text-xs font-bold text-gray-400 ml-2">Asisten AI Guru</span>
               </div>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 font-semibold border border-red-500/20">AI Active</span>
             </div>
 
-            <!-- Material description text area -->
-            <div class="p-3.5 rounded-lg bg-white/5 border border-white/10">
-              <p class="text-gray-400 font-medium mb-1.5">Input Teks Deskripsi Materi / Bab:</p>
-              <textarea id="ai-material-input" rows="3" style="overflow-y: hidden;" class="w-full bg-transparent border-none focus:ring-0 text-gray-800 dark:text-gray-200 resize-none font-medium leading-relaxed p-0 outline-none placeholder-gray-500 text-xs" placeholder="Ketik deskripsi materi pelajaran di sini...">Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.</textarea>
-            </div>
-
-            <!-- Generate Button -->
-            <div class="flex justify-center">
-              <button id="btn-generate-ai" onclick="generateAiExam()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 border border-red-500/20 text-[11px] transition-all w-full cursor-pointer shadow-lg shadow-red-500/20">
-                <i class="fas fa-wand-magic-sparkles"></i> Hubungkan Ke AI & Buat Soal
-              </button>
-            </div>
-
-            <!-- Results area -->
-            <div id="ai-simulator-result" class="space-y-2">
-              <div class="p-3.5 rounded-lg bg-red-500/5 border border-red-500/10 space-y-2" data-explanation="Glukosa adalah hasil fotosintesis yang digunakan sebagai cadangan energi utama tumbuhan, sedangkan Oksigen dilepaskan ke udara.">
-                <p class="text-red-500 font-bold flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Hasil Soal Rekomendasi AI:</p>
-                <p id="ai-sim-question" class="font-bold text-gray-700 dark:text-gray-300">"Apakah zat hasil fotosintesis tumbuhan yang digunakan sebagai sumber energi utama?"</p>
-                
-                <div id="ai-sim-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-semibold pt-1">
-                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="true">
-                    <span>A. Glukosa</span>
-                    <i class="fas fa-check text-emerald-500 hidden"></i>
+            <!-- Mockup inner content -->
+            <div class="space-y-4 text-xs">
+              <!-- Topic selector pills -->
+              <div class="space-y-1.5">
+                <p class="text-gray-400 font-medium">Pilih Topik Cepat:</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.">
+                    Fotosintesis
                   </button>
-                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
-                    <span>B. Karbondioksida</span>
-                    <i class="fas fa-times text-red-500 hidden"></i>
+                  <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Hukum gravitasi Newton menyatakan gaya tarik gravitasi dua benda sebanding dengan massa masing-masing dan berbanding terbalik dengan kuadrat jarak keduanya.">
+                    Gravitasi
                   </button>
-                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
-                    <span>C. Air</span>
-                    <i class="fas fa-times text-red-500 hidden"></i>
-                  </button>
-                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
-                    <span>D. Nitrogen</span>
-                    <i class="fas fa-times text-red-500 hidden"></i>
+                  <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Proklamasi Kemerdekaan Indonesia dibacakan oleh Soekarno pada tanggal 17 Agustus 1945 di Jalan Pegangsaan Timur No. 56, Jakarta.">
+                    Kemerdekaan RI
                   </button>
                 </div>
-                <!-- Feedback text -->
-                <p id="ai-sim-feedback" class="text-[9px] font-semibold mt-2 hidden p-2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"></p>
+              </div>
+
+              <!-- Material description text area -->
+              <div class="p-3.5 rounded-lg bg-white/5 border border-white/10">
+                <p class="text-gray-400 font-medium mb-1.5">Input Teks Deskripsi Materi / Bab:</p>
+                <textarea id="ai-material-input" rows="3" style="overflow-y: hidden;" class="w-full bg-transparent border-none focus:ring-0 text-gray-800 dark:text-gray-200 resize-none font-medium leading-relaxed p-0 outline-none placeholder-gray-500 text-xs" placeholder="Ketik deskripsi materi pelajaran di sini...">Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.</textarea>
+              </div>
+
+              <!-- Generate Button -->
+              <div class="flex justify-center">
+                <button id="btn-generate-ai" onclick="generateAiExam()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 border border-red-500/20 text-[11px] transition-all w-full cursor-pointer shadow-lg shadow-red-500/20">
+                  <i class="fas fa-wand-magic-sparkles"></i> Hubungkan Ke AI & Buat Soal
+                </button>
+              </div>
+
+              <!-- Results area -->
+              <div id="ai-simulator-result" class="space-y-2">
+                <div class="p-3.5 rounded-lg bg-red-500/5 border border-red-500/10 space-y-2" data-explanation="Glukosa adalah hasil fotosintesis yang digunakan sebagai cadangan energi utama tumbuhan, sedangkan Oksigen dilepaskan ke udara.">
+                  <p class="text-red-500 font-bold flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Hasil Soal Rekomendasi AI:</p>
+                  <p id="ai-sim-question" class="font-bold text-gray-700 dark:text-gray-300">"Apakah zat hasil fotosintesis tumbuhan yang digunakan sebagai sumber energi utama?"</p>
+                  
+                  <div id="ai-sim-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-semibold pt-1">
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="true">
+                      <span>A. Glukosa</span>
+                      <i class="fas fa-check text-emerald-500 hidden"></i>
+                    </button>
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                      <span>B. Karbondioksida</span>
+                      <i class="fas fa-times text-red-500 hidden"></i>
+                    </button>
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                      <span>C. Air</span>
+                      <i class="fas fa-times text-red-500 hidden"></i>
+                    </button>
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                      <span>D. Nitrogen</span>
+                      <i class="fas fa-times text-red-500 hidden"></i>
+                    </button>
+                  </div>
+                  <!-- Feedback text -->
+                  <p id="ai-sim-feedback" class="text-[9px] font-semibold mt-2 hidden p-2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"></p>
+                </div>
               </div>
             </div>
+          </div>
+
+          <!-- PANEL 2: CBT UJIAN SISWA (STUDENT PANEL) -->
+          <div id="cbt-panel-student" class="cbt-section-panel hidden space-y-4">
+            <!-- Mockup top bar -->
+            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span class="text-xs font-bold text-gray-400 ml-2">CBT LMS Siswa</span>
+              </div>
+              <span id="cbt-sec-progress-indicator" class="text-[10px] font-semibold text-gray-500">Soal 1 dari 3</span>
+            </div>
+
+            <!-- Quiz area -->
+            <div id="cbt-sec-quiz-box" class="space-y-4 text-xs">
+              <h5 id="cbt-sec-question-text" class="text-sm font-bold leading-relaxed">Apakah nama organel sel tumbuhan yang berfungsi menangkap energi cahaya matahari untuk fotosintesis?</h5>
+              
+              <!-- dynamic choices -->
+              <div id="cbt-sec-options-container" class="grid grid-cols-1 gap-2.5">
+                <button type="button" onclick="clickCbtSecOption(this)" class="ai-opt-btn p-2.5 rounded-lg text-left bg-white/5 border border-white/10 hover:bg-white/10 text-gray-700 dark:text-gray-300 text-xs font-medium flex items-center justify-between outline-none cursor-pointer" data-correct="true">
+                  <span>A. Kloroplas</span>
+                  <i class="fas fa-check text-emerald-500 hidden"></i>
+                </button>
+                <button type="button" onclick="clickCbtSecOption(this)" class="ai-opt-btn p-2.5 rounded-lg text-left bg-white/5 border border-white/10 hover:bg-white/10 text-gray-700 dark:text-gray-300 text-xs font-medium flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                  <span>B. Mitokondria</span>
+                  <i class="fas fa-times text-red-500 hidden"></i>
+                </button>
+                <button type="button" onclick="clickCbtSecOption(this)" class="ai-opt-btn p-2.5 rounded-lg text-left bg-white/5 border border-white/10 hover:bg-white/10 text-gray-700 dark:text-gray-300 text-xs font-medium flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                  <span>C. Ribosom</span>
+                  <i class="fas fa-times text-red-500 hidden"></i>
+                </button>
+              </div>
+
+              <!-- AI analyzer tip box -->
+              <div id="cbt-sec-ai-insight" class="hidden p-3 rounded-lg bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/20 text-[10px] flex gap-2.5 animate-fadeIn">
+                <i class="fas fa-shield-alt text-sm mt-0.5 text-red-500"></i>
+                <div>
+                  <p class="font-medium leading-relaxed"><strong>Sistem Keamanan Anti-Cheat Aktif:</strong> AI mendeteksi integritas ujian real-time untuk menjamin keaslian nilai siswa.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom bar of the frosted widget (Matching Coba Simulasi) -->
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500">
+            <span class="flex items-center gap-1"><i class="fas fa-lock text-red-500"></i> Sandbox Demo Enkripsi</span>
+            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-400"></i> Sinkronisasi Live</span>
           </div>
 
         </div>
