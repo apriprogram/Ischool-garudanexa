@@ -413,7 +413,11 @@ body.light-theme #fitur .relative i.fa-search {
 
 .hero-scroll-container:hover {
   scrollbar-width: thin;
-  scrollbar-color: rgba(204, 0, 1, 0.4) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+body.light-theme .hero-scroll-container:hover {
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 .hero-scroll-container:hover::-webkit-scrollbar {
@@ -425,12 +429,21 @@ body.light-theme #fitur .relative i.fa-search {
 }
 
 .hero-scroll-container:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(204, 0, 1, 0.4);
+  background-color: rgba(255, 255, 255, 0.25);
   border-radius: 99px;
 }
 
 .hero-scroll-container:hover::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(204, 0, 1, 0.7);
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Light Theme overrides for Hero Scrollbar */
+body.light-theme .hero-scroll-container:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .hero-scroll-container:hover::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .hero-slider-nav-item {
