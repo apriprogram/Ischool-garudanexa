@@ -426,10 +426,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   dashboardTabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      dashboardTabs.forEach(t => t.classList.remove("active", "border-red-500", "text-red-500"));
+      dashboardTabs.forEach(t => {
+        t.classList.remove("active", "border-red-500", "text-red-500");
+        t.classList.add("border-transparent");
+      });
       dashboardPanels.forEach(p => p.classList.add("hidden"));
 
       tab.classList.add("active", "border-red-500", "text-red-500");
+      tab.classList.remove("border-transparent");
       const targetId = tab.getAttribute("data-target");
       const targetPanel = document.getElementById(targetId);
       if (targetPanel) {
