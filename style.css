@@ -192,24 +192,31 @@ body.light-theme .text-gradient-red {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f0b0c;
-}
-
-body.light-theme ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(204, 0, 1, 0.25);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 99px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(204, 0, 1, 0.55);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Light Theme Scrollbars */
+body.light-theme ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
 }
 
 /* Interactive Tabs & Widgets Stylings */
