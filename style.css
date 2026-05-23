@@ -1086,16 +1086,49 @@ body.light-theme .category-filter-btn.active {
 }
 
 /* AI Simulator active topic pill styling */
+.ai-topic-pill {
+  font-size: 11px !important;
+  padding: 0.35rem 0.75rem !important;
+  border-radius: 9999px !important; /* Elegant capsule pill look */
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #9ca3af !important; /* Premium soft gray text */
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+}
+
+.ai-topic-pill:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Light / White Mode for AI Topic Pills */
+body.light-theme .ai-topic-pill {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #4b5563 !important;
+}
+
+body.light-theme .ai-topic-pill:hover {
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+  border-color: rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Active Highlighted States */
 .ai-topic-pill.active {
-  background-color: rgba(204, 0, 1, 0.2) !important;
-  color: #ff3b3c !important;
-  border-color: rgba(204, 0, 1, 0.4) !important;
+  background-color: rgba(204, 0, 1, 0.18) !important;
+  color: #ff4d4f !important;
+  border-color: rgba(204, 0, 1, 0.45) !important;
+  font-weight: 600 !important;
 }
 
 body.light-theme .ai-topic-pill.active {
   background-color: rgba(204, 0, 1, 0.08) !important;
   color: #cc0001 !important;
-  border-color: rgba(204, 0, 1, 0.25) !important;
+  border-color: rgba(204, 0, 1, 0.35) !important;
+  font-weight: 600 !important;
 }
 
 
