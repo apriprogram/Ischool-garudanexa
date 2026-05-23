@@ -936,4 +936,169 @@ body.light-theme .category-filter-btn.active {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* ==========================================================================
+   PREMIUM MOBILE RESPONSIVENESS & SLEEK TYPOGRAPHY OVERRIDES (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Tighten global section padding for snug mobile layouts */
+  section {
+    padding-top: 3.5rem !important; /* py-14 instead of massive py-20/28 */
+    padding-bottom: 3.5rem !important;
+  }
+
+  main {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Core Responsive Typography: Scale down massive titles and line-heights */
+  h1 {
+    font-size: 1.85rem !important; /* ~29px instead of massive 36px/40px */
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  h2 {
+    font-size: 1.35rem !important; /* ~21px instead of 30px */
+    line-height: 1.25 !important;
+    letter-spacing: -0.015em !important;
+  }
+
+  /* Snug fit for section subtitles to complement shrunken headings */
+  p.text-sm, 
+  p.text-base, 
+  p.text-lg,
+  section p.text-gray-500,
+  main p.text-gray-300 {
+    font-size: 0.8rem !important; /* ~13px for elegant mobile readability */
+    line-height: 1.5 !important;
+  }
+
+  /* Compact spacing for margins and layout blocks */
+  .mb-16 {
+    margin-bottom: 1.75rem !important;
+  }
+  .mb-12 {
+    margin-bottom: 1.25rem !important;
+  }
+  .mb-8 {
+    margin-bottom: 1rem !important;
+  }
+  .mt-12 {
+    margin-top: 1.5rem !important;
+  }
+  .mt-6 {
+    margin-top: 0.75rem !important;
+  }
+
+  /* Adjust grid gap density on mobile to prevent huge empty blocks */
+  .grid.gap-16, 
+  .grid.lg\:gap-16 {
+    gap: 1.75rem !important; /* snug 28px grid separation */
+  }
+  
+  .grid.gap-6 {
+    gap: 1rem !important; /* snug 16px card separation */
+  }
+
+  /* Hero USP lists sizing */
+  .pt-6.border-t.border-white\/10,
+  .pt-6.border-t.border-gray-200\/40 {
+    padding-top: 1rem !important;
+    margin-top: 1rem !important;
+    gap: 0.5rem 0.75rem !important;
+  }
+  
+  .pt-6.border-t.border-white\/10 span,
+  .pt-6.border-t.border-gray-200\/40 span {
+    font-size: 10px !important;
+  }
+
+  /* Statistics / Metric cards mobile optimization */
+  .metric-card {
+    padding: 1.25rem !important; /* snug card padding */
+  }
+
+  .metric-card h3 {
+    font-size: 2rem !important; /* 32px instead of 48px */
+  }
+
+  .metric-card h4 {
+    font-size: 0.85rem !important; /* ~13.5px instead of 16px */
+  }
+
+  .metric-card p {
+    font-size: 0.75rem !important;
+  }
+
+  /* Interactive Simulator dashboard adjustments */
+  .glass-card {
+    padding: 1.25rem !important; /* Snug card inner padding */
+  }
+
+  .dashboard-tab-btn {
+    font-size: 10px !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  #panel-akademik .grid, 
+  #panel-presensi .grid, 
+  #panel-cbt .grid, 
+  #panel-kantin .grid {
+    gap: 0.75rem !important;
+  }
+
+  /* Pricing Cards responsive spacing and sizing */
+  .pricing-card {
+    padding: 1.5rem !important; /* Cozy compact card padding */
+  }
+
+  .pricing-card h4 {
+    font-size: 1.1rem !important;
+  }
+
+  .pricing-card .text-2xl {
+    font-size: 1.35rem !important; /* Scale price down slightly on mobile so it never wraps */
+  }
+
+  .pricing-card ul {
+    padding-top: 0.5rem !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .pricing-card li {
+    font-size: 11px !important;
+  }
+
+  .pricing-shaded-box {
+    margin-top: 1rem !important;
+    padding: 0.875rem !important;
+  }
+
+  /* FAQ Accordion mobile styles */
+  .faq-header {
+    padding: 1.15rem 1rem !important;
+  }
+
+  .faq-header span {
+    font-size: 0.825rem !important; /* Tighter layout for mobile questions */
+  }
+
+  .faq-answer {
+    padding: 0 1rem 1.15rem 1rem !important;
+    font-size: 0.775rem !important; /* snug answer fonts */
+  }
+
+  /* Mobile Double Selectors Spacing (closer to cards) */
+  #harga .border-b {
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+
 
