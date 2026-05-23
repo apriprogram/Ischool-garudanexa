@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISchool - Digitalisasi Sekolah Lebih Mudah & Modern</title>
+  <link rel="icon" type="image/png" href="img/logo/logoischool.png">
+  
+  <!-- SEO Metadata -->
+  <meta name="description" content="Solusi terpadu untuk PPDB Online, Manajemen Keuangan, Absensi Pintar, hingga Sistem Kantin Digital dalam satu platform manajemen sekolah terintegrasi.">
+  <meta name="keywords" content="ISchool, digitalisasi sekolah, ppdb online, lms indonesia, kasir kantin sekolah, absensi qr, sitem manajemen sekolah, cbt ujian online">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            red: {
+              50: '#fff5f5',
+              100: '#ffe3e3',
+              200: '#ffc9c9',
+              300: '#ffa3a3',
+              400: '#ff7070',
+              500: '#cc0001', /* Dominant brand logo crimson red */
+              600: '#b80001',
+              700: '#990001',
+              800: '#800001',
+              900: '#660000',
+              950: '#400000',
+            },
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            secondary: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            'fadeIn': 'fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(15px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="transition-colors duration-500">
+
+  <!-- Hero Background Slider Wrapper -->
+  <div id="hero-slider-container" class="absolute top-0 left-0 w-full h-[100vh] min-h-[700px] z-0 overflow-hidden select-none pointer-events-none">
+    
+    <!-- Slides matching the 6 interactive options -->
+    <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100 ease-in-out" style="background-image: url('img/bg/bg1.png');"></div>
+    <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 ease-in-out" style="background-image: url('img/bg/bg2.png');"></div>
+    <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 ease-in-out" style="background-image: url('img/bg/bg3.png');"></div>
+    <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 ease-in-out" style="background-image: url('img/bg/bg1.png');"></div>
+    <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 ease-in-out" style="background-image: url('img/bg/bg2.png');"></div>
+    <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 ease-in-out" style="background-image: url('img/bg/bg3.png');"></div>
+  </div>
+
+  <!-- Background Glowing Aurora Blobs -->
+  <div class="aurora-container">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
+
+  <!-- Header / Navigation Bar (Frosted Glass - Magnific Style) -->
+  <header class="sticky top-0 z-40 w-full glass-panel border-b border-white/5 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <img src="img/logo/logoischool.png" alt="ISchool Logo" class="h-7 w-auto object-contain group-hover:scale-105 transition-all duration-300" decoding="async">
+        <span class="text-lg font-bold tracking-tight text-white group-hover:text-red-500 transition-colors">ISchool</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-6 text-[13px] font-semibold tracking-wide">
+        <a href="#fitur" class="text-gray-300 hover:text-white transition-colors">Fitur Unggulan</a>
+        <a href="#demo" class="text-gray-300 hover:text-white transition-colors">Demo Interaktif</a>
+        <a href="#harga" class="text-gray-300 hover:text-white transition-colors">Paket Harga</a>
+        <a href="#faq" class="text-gray-300 hover:text-white transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Right Column: Search Box, Login, Register, Theme Toggle (Magnific layout) -->
+      <div class="hidden md:flex items-center gap-4">
+        
+        <!-- Search Box pill outline -->
+        <div class="relative hidden lg:flex items-center">
+          <i class="fas fa-search absolute left-3 text-gray-400 text-[10px]"></i>
+          <input type="text" id="header-search-fitur" placeholder="Cari fitur..." class="bg-white/5 border border-white/10 hover:border-white/20 focus:border-white/30 text-white placeholder-gray-400 text-xs rounded-full pl-8 pr-4 py-1 w-40 focus:w-48 transition-all outline-none">
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-gray-300 hover:text-white transition-all hover:scale-105" title="Ganti Tema">
+          <i class="fas fa-moon text-sm"></i>
+        </button>
+
+        <!-- Ghost Login Button -->
+        <a href="#" class="text-xs font-semibold text-gray-300 hover:text-white transition-colors px-2 py-1.5">Masuk</a>
+
+        <!-- Solid Capsule Pill Button (White with black text) -->
+        <button class="btn-register-cta bg-white hover:bg-gray-100 text-black text-xs font-bold py-1.5 px-4 rounded-full transition-all border-none shadow-none">
+          Coba Gratis
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center gap-2.5 md:hidden">
+        <button id="theme-toggle-mobile" class="w-8 h-8 rounded-md border border-white/10 glass-panel flex items-center justify-center text-gray-400" onclick="document.getElementById('theme-toggle').click()">
+          <i class="fas fa-adjust text-xs"></i>
+        </button>
+        <button id="mobile-menu-btn" class="w-8 h-8 rounded-md border border-white/10 glass-panel flex items-center justify-center text-gray-400">
+          <i class="fas fa-bars text-xs"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#0b0708]/95 backdrop-blur-xl px-6 py-6 space-y-4">
+      <a href="#fitur" class="block text-sm font-semibold text-gray-400 hover:text-red-500 py-1 transition-colors">Fitur Unggulan</a>
+      <a href="#demo" class="block text-sm font-semibold text-gray-400 hover:text-red-500 py-1 transition-colors">Demo Interaktif</a>
+      <a href="#harga" class="block text-sm font-semibold text-gray-400 hover:text-red-500 py-1 transition-colors">Paket Harga</a>
+      <a href="#faq" class="block text-sm font-semibold text-gray-400 hover:text-red-500 py-1 transition-colors">FAQ</a>
+      <div class="h-[1px] bg-white/5 my-4"></div>
+      <div class="flex gap-4">
+        <a href="#" class="flex-1 text-center py-2.5 rounded-md border border-white/10 text-sm font-bold hover:bg-white/5 transition-all">Masuk</a>
+        <button class="btn-register-cta flex-1 py-2.5 rounded-md bg-gradient-to-r from-red-500 to-rose-600 text-white text-sm font-bold text-center">Coba Gratis</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-7xl mx-auto px-6 relative z-10 min-h-[calc(100vh-56px)] flex flex-col justify-center pt-12 pb-10">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      
+      <!-- Left Column: Copywriting (Magnific AI style - wide & premium) -->
+      <div class="lg:col-span-7 space-y-8 text-center lg:text-left select-none">
+        
+        <!-- Badge -->
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-500 text-xs font-semibold tracking-wide uppercase select-none">
+          <i class="fas fa-sparkles text-[10px]"></i> Platform Digitalisasi Sekolah Terbaik
+        </span>
+
+        <!-- Title -->
+        <h1 class="text-4xl sm:text-5xl md:text-6.5xl font-extrabold tracking-tight leading-[1.05] text-white">
+          Digitalisasi Sekolah <br>
+          <span class="text-gradient-red font-black">Lebih Mudah & Modern</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Solusi terintegrasi untuk PPDB Online, Manajemen Keuangan, Absensi QR Pintar, Ujian CBT berbasis AI, hingga Sistem E-Wallet Kantin dalam satu platform terpadu.
+        </p>
+
+        <!-- CTA Buttons (Magnific AI layout style) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+          <!-- Solid white button -->
+          <button class="btn-register-cta w-full sm:w-auto bg-white hover:bg-gray-100 text-black text-sm font-bold py-3.5 px-8 rounded-full transition-all flex items-center justify-center gap-2 shadow-none border-none">
+            Coba Gratis 30 Hari
+          </button>
+          
+          <!-- Outlined glass button -->
+          <a href="#demo" class="w-full sm:w-auto border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 px-8 rounded-full text-sm transition-all flex items-center justify-center gap-2 shadow-none">
+            Coba Demo Interaktif
+          </a>
+        </div>
+
+        <!-- Hero USP Bar -->
+        <div class="pt-6 border-t border-white/10 flex flex-wrap justify-center lg:justify-start gap-6 text-xs text-gray-400 font-semibold uppercase tracking-wider">
+          <span class="flex items-center gap-2"><i class="fas fa-bolt text-white text-sm"></i> Setup Instan</span>
+          <span class="flex items-center gap-2"><i class="fas fa-sync text-white text-sm"></i> Sinkronisasi Data</span>
+          <span class="flex items-center gap-2"><i class="fas fa-headset text-white text-sm"></i> Bantuan 24 Jam</span>
+        </div>
+
+        <!-- Horizontal Product Menu Tab-Bar -->
+        <div class="mt-4">
+          <div class="hero-scroll-container flex flex-row gap-2 overflow-x-auto pb-2 whitespace-nowrap">
+            
+            <!-- Option 0 -->
+            <div class="hero-slider-nav-item active cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="0">
+              <span class="font-semibold text-white tracking-tight group-hover:text-red-500 transition-colors">PPDB Online</span>
+            </div>
+            
+            <!-- Option 1 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="1">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Website Profil Sekolah</span>
+            </div>
+            
+            <!-- Option 2 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="2">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Absensi QR</span>
+            </div>
+            
+            <!-- Option 3 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="3">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Akademik & Rapor</span>
+            </div>
+            
+            <!-- Option 4 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="4">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Generator Soal Otomatis (AI)</span>
+            </div>
+            
+            <!-- Option 5 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="5">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Ujian Berbasis Komputer (CBT)</span>
+            </div>
+            
+            <!-- Option 6 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="6">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Managemen Keuangan</span>
+            </div>
+            
+            <!-- Option 7 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="7">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Sistem Keuangan & Tagihan</span>
+            </div>
+            
+            <!-- Option 8 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="8">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Rekapitulasi Laporan</span>
+            </div>
+            
+            <!-- Option 9 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="9">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Forum Diskusi</span>
+            </div>
+            
+            <!-- Option 10 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="10">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">POS Kantin</span>
+            </div>
+            
+            <!-- Option 11 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="11">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">E-Wallet Siswa</span>
+            </div>
+            
+            <!-- Option 12 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="12">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">Payment Gateway</span>
+            </div>
+            
+            <!-- Option 13 -->
+            <div class="hero-slider-nav-item cursor-pointer group py-1.5 px-3 rounded-full text-xs transition-all duration-300 inline-flex" data-slide="13">
+              <span class="font-semibold text-gray-400 dark:text-gray-500 tracking-tight group-hover:text-white transition-colors">BioLink/Linktree</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Slide Switcher Backdrop Space -->
+      <div class="lg:col-span-5 select-none pointer-events-none relative z-20"></div>
+
+    </div>
+
+  </main>
+
+  <!-- ===== SECTION MITRA ===== -->
+  <section id="mitra" class="mitra-section w-full py-10 overflow-hidden light-theme-bg">
+    <!-- Marquee -->
+    <div class="overflow-hidden relative logo-marquee-wrapper">
+      <div class="logo-marquee-track flex items-center gap-16">
+        <!-- Set 1 -->
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Dexign" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Dexign</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Wayline" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Wayline</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Emblem" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Emblem</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Optimal" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Optimal</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Nietzsche" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Nietzsche</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Verdant" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Verdant</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Novara" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Novara</span>
+        </span>
+        <!-- Set 2 (duplicate) -->
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Dexign" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Dexign</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Wayline" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Wayline</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Emblem" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Emblem</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Optimal" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Optimal</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Nietzsche" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Nietzsche</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Verdant" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Verdant</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Novara" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Novara</span>
+        </span>
+        <!-- Set 3 (extra duplicate for seamless scroll) -->
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Dexign" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Dexign</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Wayline" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Wayline</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Emblem" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Emblem</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Optimal" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Optimal</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Nietzsche" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Nietzsche</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Verdant" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Verdant</span>
+        </span>
+        <span class="logo-marquee-item flex items-center gap-2.5 opacity-60 hover:opacity-100">
+          <img src="img/logo/logoischool.png" alt="Novara" class="mitra-logo h-8 w-auto object-contain">
+          <span class="mitra-logo-text text-base font-bold tracking-tight whitespace-nowrap">Novara</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Statistics Section (Premium Cards) -->
+  <section id="statistik" class="w-full py-12 light-theme-bg">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="metric-card p-6 md:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-6">
+          <div class="stat-icon text-gray-800 dark:text-red-500 text-2xl">
+            <i class="fas fa-smile"></i>
+          </div>
+          <span class="text-[10px] font-bold text-red-500 bg-red-500/5 px-2.5 py-1 rounded-full border border-red-500/10 uppercase tracking-wider">
+            Kepuasan
+          </span>
+        </div>
+        <div class="space-y-2">
+          <h3 class="text-4xl md:text-5xl font-black text-gradient-red tracking-tight leading-none">98%</h3>
+          <h4 class="text-base font-bold text-gray-900 dark:text-white">Kepuasan Siswa & Guru</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Antarmuka UX modern yang mudah diakses semua usia.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="metric-card p-6 md:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-6">
+          <div class="stat-icon text-gray-800 dark:text-rose-500 text-2xl">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <span class="text-[10px] font-bold text-rose-500 bg-rose-500/5 px-2.5 py-1 rounded-full border border-rose-500/10 uppercase tracking-wider">
+            Efisiensi
+          </span>
+        </div>
+        <div class="space-y-2">
+          <h3 class="text-4xl md:text-5xl font-black text-gradient-red tracking-tight leading-none">60%</h3>
+          <h4 class="text-base font-bold text-gray-900 dark:text-white">Efisiensi Administrasi</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Otomatisasi laporan dan tagihan bebas salah hitung.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="metric-card p-6 md:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-6">
+          <div class="stat-icon text-gray-800 dark:text-orange-500 text-2xl">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <span class="text-[10px] font-bold text-orange-500 bg-orange-500/5 px-2.5 py-1 rounded-full border border-orange-500/10 uppercase tracking-wider">
+            Kecepatan
+          </span>
+        </div>
+        <div class="space-y-2">
+          <h3 class="text-4xl md:text-5xl font-black text-gradient-red tracking-tight leading-none">3x</h3>
+          <h4 class="text-base font-bold text-gray-900 dark:text-white">Lebih Cepat PPDB</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Verifikasi dokumen calon siswa instan berbasis cloud.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="metric-card p-6 md:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-6">
+          <div class="stat-icon text-gray-800 dark:text-red-500 text-2xl">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <span class="text-[10px] font-bold text-red-500 bg-red-500/5 px-2.5 py-1 rounded-full border border-red-500/10 uppercase tracking-wider">
+            Keamanan
+          </span>
+        </div>
+        <div class="space-y-2">
+          <h3 class="text-4xl md:text-5xl font-black text-gradient-red tracking-tight leading-none">100%</h3>
+          <h4 class="text-base font-bold text-gray-900 dark:text-white">Aman & Terenkripsi</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Jaminan isolasi data penuh didukung Dedicated Server Pod.</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Section (Simulasi Dashboard Pintar) -->
+  <section id="demo" class="w-full py-20 light-theme-bg">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      
+      <!-- Text side -->
+      <div class="lg:col-span-5 space-y-6">
+        <span class="text-xs font-bold text-red-500 uppercase tracking-widest">Eksplorasi Langsung</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Coba Simulasi <span class="text-gradient-red">Dashboard Sekolah Pintar</span>
+        </h2>
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Gunakan panel kendali interaktif di sebelah kanan untuk merasakan langsung kecanggihan platform ISchool. Mulai dari melacak jadwal kelas harian, melakukan pemindaian kehadiran real-time Budi & kawan-kawan, menguji kuis cerdas bertenaga AI, hingga mencoba transaksi Point of Sales (POS) e-wallet kantin mandiri.
+        </p>
+        
+        <div class="pt-6 border-t border-gray-200 dark:border-white/5 flex flex-wrap gap-6 text-xs text-gray-500 font-semibold uppercase tracking-wider">
+          <span class="flex items-center gap-2"><i class="fas fa-hand-pointer text-red-500 text-sm"></i> Klik Tab</span>
+          <span class="flex items-center gap-2"><i class="fas fa-sync text-red-500 text-sm"></i> Respon Instan</span>
+        </div>
+      </div>
+      
+      <!-- Graphical Interactive Simulator side -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        
+        <!-- Interactive Pill Switcher -->
+        <div class="w-full glass-panel p-2 rounded-lg flex flex-wrap md:flex-nowrap gap-2 border border-white/5">
+          <button class="dashboard-tab-btn active flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-target="panel-akademik">
+            <i class="fas fa-calendar-alt"></i> Akademik & Rapor
+          </button>
+          <button class="dashboard-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-target="panel-presensi">
+            <i class="fas fa-user-check"></i> Presensi Pintar
+          </button>
+          <button class="dashboard-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-target="panel-cbt">
+            <i class="fas fa-laptop-code"></i> Ujian CBT & AI
+          </button>
+          <button class="dashboard-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-target="panel-kantin">
+            <i class="fas fa-store"></i> Kasir Kantin
+          </button>
+        </div>
+
+        <!-- Main Display Frosted Box -->
+        <div class="w-full glass-card p-6 md:p-8 rounded-xl min-h-[460px] flex flex-col justify-between relative overflow-hidden">
+          
+          <!-- Widget Glow ring background -->
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-red-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+
+          <!-- PANEL 1: AKADEMIK & RAPOR WIDGET -->
+          <div id="panel-akademik" class="dashboard-panel space-y-6">
+            <div class="flex items-center justify-between border-b border-white/5 pb-4">
+              <div>
+                <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Modul Akademik</span>
+                <h4 class="text-xl font-bold tracking-tight">Jadwal & Evaluasi Nilai</h4>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-red-500/10 text-red-500 border border-red-500/20">Semester Genap</span>
+            </div>
+
+            <!-- Timetable grid -->
+            <div class="space-y-3">
+              <p class="text-xs font-bold text-gray-500 uppercase">Jadwal Kelas Hari Ini</p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="p-3.5 rounded-lg glass-panel border-l-4 border-l-red-500">
+                  <p class="text-[10px] text-gray-500">07:30 - 09:00</p>
+                  <p class="text-xs font-bold mt-1">Matematika Wajib</p>
+                  <p class="text-[10px] text-gray-500 mt-1">Drs. Ahmad R.</p>
+                </div>
+                <div class="p-3.5 rounded-lg glass-panel border-l-4 border-l-orange-500">
+                  <p class="text-[10px] text-gray-500">09:15 - 10:45</p>
+                  <p class="text-xs font-bold mt-1">Fisika Quantum</p>
+                  <p class="text-[10px] text-gray-500 mt-1">Dra. Indah P.</p>
+                </div>
+                <div class="p-3.5 rounded-lg glass-panel border-l-4 border-l-rose-500">
+                  <p class="text-[10px] text-gray-500">11:00 - 12:30</p>
+                  <p class="text-xs font-bold mt-1">Bahasa Inggris</p>
+                  <p class="text-[10px] text-gray-500 mt-1">Mr. John Doe</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grade assessment chart mockup -->
+            <div class="p-4 rounded-lg glass-panel space-y-4">
+              <div class="flex items-center justify-between">
+                <p class="text-xs font-bold text-gray-500 uppercase">Rapor Evaluasi Belajar</p>
+                <span class="text-xs font-bold text-red-500">Rata-rata: 88.5</span>
+              </div>
+              <div class="space-y-2.5">
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1">
+                    <span>Tugas Mandiri</span>
+                    <span class="text-gray-400">92/100</span>
+                  </div>
+                  <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-red-500 to-rose-500 rounded-full" style="width: 92%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1">
+                    <span>Ujian Tengah Semester</span>
+                    <span class="text-gray-400">85/100</span>
+                  </div>
+                  <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-red-500 to-rose-500 rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 2: PRESENSI PINTAR WIDGET -->
+          <div id="panel-presensi" class="dashboard-panel hidden space-y-5">
+            <div class="flex items-center justify-between border-b border-white/5 pb-4">
+              <div>
+                <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Sistem Absensi AbsenQR</span>
+                <h4 class="text-xl font-bold tracking-tight">Presensi Kehadiran Real-time</h4>
+              </div>
+              <div class="text-right">
+                <p class="text-xs font-bold text-emerald-400" id="presence-count">248</p>
+                <p class="text-[10px] text-gray-500">Hadir Hari Ini</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+              
+              <!-- Left side: camera scan simulation -->
+              <div class="md:col-span-5 flex flex-col items-center gap-3">
+                <div id="qr-camera-box" class="w-32 h-32 rounded-lg border border-red-500/20 bg-red-500/5 relative overflow-hidden flex items-center justify-center">
+                  <div class="pulse-ring"></div>
+                  <!-- simulated QR code image -->
+                  <i class="fas fa-qrcode text-5xl text-red-500/80"></i>
+                </div>
+                <button id="btn-scan-qr" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-lg text-xs transition-colors flex items-center justify-center gap-2">
+                  <i class="fas fa-qrcode"></i> Tap Kartu RFID / Scan QR
+                </button>
+              </div>
+
+              <!-- Right side: attendance logging list -->
+              <div class="md:col-span-7 space-y-2">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Log Scan Terbaru</p>
+                <div id="attendance-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                  <div class="text-center py-8 text-gray-500 text-xs">
+                    <i class="fas fa-id-card text-2xl opacity-40 mb-2"></i>
+                    <p>Belum ada aktivitas scan</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- PANEL 3: CBT & UJIAN AI SIMULATOR -->
+          <div id="panel-cbt" class="dashboard-panel hidden space-y-4">
+            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+              <div>
+                <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Simulator Ujian CBT (LMS)</span>
+                <h4 class="text-lg font-bold tracking-tight">Kuis Bertenaga Kecerdasan Buatan (AI)</h4>
+              </div>
+              <span id="cbt-progress-indicator" class="text-[10px] font-semibold text-gray-500">Soal 1 dari 3</span>
+            </div>
+
+            <!-- Quiz box -->
+            <div id="cbt-quiz-box" class="space-y-4">
+              <h5 id="cbt-question-text" class="text-sm font-bold leading-relaxed">Loading question...</h5>
+              
+              <!-- options grid -->
+              <div id="cbt-options-container" class="grid grid-cols-1 gap-2.5">
+                <!-- dynamic choices -->
+              </div>
+
+              <!-- AI analyzer tip box -->
+              <div id="cbt-ai-insight" class="hidden p-3 rounded-lg bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/20 text-xs flex gap-2.5">
+                <i class="fas fa-brain text-sm mt-0.5"></i>
+                <div>
+                  <p class="font-medium leading-relaxed"></p>
+                </div>
+              </div>
+
+              <!-- action panel -->
+              <div class="flex justify-end">
+                <button id="cbt-next-btn" class="hidden bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold py-2.5 px-6 rounded-lg text-xs transition-colors">
+                  Soal Selanjutnya
+                </button>
+              </div>
+            </div>
+
+            <!-- Result Report box -->
+            <div id="cbt-result-box" class="hidden text-center py-6 space-y-4">
+              <div class="w-14 h-14 bg-red-500/10 text-red-500 border border-red-500/20 rounded-full flex items-center justify-center text-2xl mx-auto">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h4 class="text-xl font-black">Hasil Evaluasi Belajar Anda</h4>
+              <p class="text-3xl font-black text-gradient-red" id="cbt-score-container">Skor: <span id="cbt-score">0</span>/100</p>
+              <p id="cbt-feedback-text" class="text-xs text-gray-400 leading-relaxed max-w-sm mx-auto"></p>
+              <button id="cbt-restart-btn" class="border border-white/10 hover:border-red-500/30 bg-white/5 hover:bg-red-500/5 text-xs font-bold py-2 px-5 rounded-lg transition-all">
+                Coba Ujian Lagi
+              </button>
+            </div>
+          </div>
+
+          <!-- PANEL 4: KASIR KANTIN SIMULATOR -->
+          <div id="panel-kantin" class="dashboard-panel hidden space-y-4">
+            <div class="flex items-center justify-between border-b border-white/5 pb-3">
+              <div>
+                <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Point of Sales Kantin & E-Wallet</span>
+                <h4 class="text-lg font-bold tracking-tight">Kasir Mandiri Kantin Pintar</h4>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-gray-500 font-medium">Saldo E-Wallet:</span>
+                <span class="text-xs font-extrabold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full" id="pos-wallet-balance">Rp 85.000</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+              
+              <!-- Menu Items selection grid -->
+              <div class="md:col-span-7 space-y-2">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Pilih Menu Makanan</p>
+                <div id="pos-menu-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-48 overflow-y-auto pr-1">
+                  <!-- dynamic menu cards -->
+                </div>
+              </div>
+
+              <!-- Cart lists -->
+              <div class="md:col-span-5 p-3 rounded-lg glass-panel flex flex-col justify-between min-h-[220px]">
+                <div>
+                  <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-2">Keranjang Belanja</p>
+                  <div id="pos-cart-items" class="space-y-2.5 max-h-28 overflow-y-auto pr-1">
+                    <!-- selected items -->
+                  </div>
+                </div>
+
+                <div class="pt-2 border-t border-white/5 space-y-3">
+                  <div class="flex justify-between text-xs">
+                    <span class="font-medium text-gray-500">Total Tagihan:</span>
+                    <span class="font-extrabold text-red-500 text-sm" id="pos-subtotal">Rp 0</span>
+                  </div>
+                  <button id="pos-checkout-btn" disabled class="w-full bg-gradient-to-r from-red-500 to-rose-600 disabled:from-gray-500/20 disabled:to-gray-500/20 disabled:text-gray-500 text-white font-bold py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-1.5">
+                    <i class="fas fa-wallet"></i> Bayar Via E-Wallet Siswa
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom bar of the frosted widget -->
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500">
+            <span class="flex items-center gap-1"><i class="fas fa-lock text-red-500"></i> Sandbox Demo Enkripsi</span>
+            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-400"></i> Sinkronisasi Live</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Split Spotlight Feature Section (CBT & AI Focus) -->
+  <section class="w-full py-16 md:py-24 light-theme-bg">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      
+      <!-- Text side -->
+      <div class="lg:col-span-6 space-y-6">
+        <span class="text-xs font-bold text-red-500 uppercase tracking-widest">Sorotan Fitur Ujian</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Sistem Ujian Online (CBT) & <span class="text-gradient-red">AI Pintar Generator Soal</span>
+        </h2>
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Ujian Berbasis Komputer (CBT) kami dirancang dengan sistem anti-cheat ketat yang mendeteksi pergantian tab browser dan membatasi akses aplikasi luar. Dilengkapi asisten generator soal berbasis kecerdasan buatan terintegrasi untuk mempermudah guru merancang naskah ujian berkualitas tinggi dalam hitungan detik.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-md bg-red-500/10 text-red-500 flex items-center justify-center mt-0.5">
+              <i class="fas fa-shield-alt text-[10px]"></i>
+            </div>
+            <div>
+              <h5 class="text-xs font-bold">Anti-Cheat Lock & Timer</h5>
+              <p class="text-xs text-gray-500 mt-0.5">Mengunci browser siswa dan memberlakukan hukuman waktu jika kedapatan memindahkan jendela ujian.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-5 h-5 rounded-md bg-red-500/10 text-red-500 flex items-center justify-center mt-0.5">
+              <i class="fas fa-brain text-[10px]"></i>
+            </div>
+            <div>
+              <h5 class="text-xs font-bold">AI Auto-Grading & AI Analytics</h5>
+              <p class="text-xs text-gray-500 mt-0.5">Penilaian instan untuk soal esai menggunakan model bahasa besar dan rekap kelemahan murid secara mendalam.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-register-cta btn-glow-red bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold py-3 px-6 rounded-lg text-xs transition-colors">
+          Coba Fitur CBT Gratis
+        </button>
+      </div>
+
+      <!-- Graphical Mockup side -->
+      <div class="lg:col-span-6">
+        <div class="glass-card p-6 md:p-8 rounded-xl relative border border-white/10 overflow-hidden">
+          
+          <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-red-500/5 rounded-full filter blur-2xl pointer-events-none"></div>
+
+          <!-- Mockup top bar -->
+          <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-5">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500"></span>
+              <span class="text-xs font-bold text-gray-400 ml-2">ISchool AI Generator</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 font-semibold border border-red-500/20">AI Active</span>
+          </div>
+
+          <!-- Mockup inner content -->
+          <div class="space-y-4 text-xs" id="ai-simulator-container">
+            <!-- Topic selector pills -->
+            <div class="space-y-1.5">
+              <p class="text-gray-400 font-medium">Pilih Topik Cepat:</p>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.">
+                  🌱 Fotosintesis
+                </button>
+                <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Hukum gravitasi Newton menyatakan gaya tarik gravitasi dua benda sebanding dengan massa masing-masing dan berbanding terbalik dengan kuadrat jarak keduanya.">
+                  🍎 Gravitasi
+                </button>
+                <button type="button" onclick="selectAiTopic(this)" class="ai-topic-pill px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 border border-white/5 text-gray-700 dark:text-gray-300 transition-all cursor-pointer text-[10px] font-bold" data-text="Proklamasi Kemerdekaan Indonesia dibacakan oleh Soekarno pada tanggal 17 Agustus 1945 di Jalan Pegangsaan Timur No. 56, Jakarta.">
+                  🇮🇩 Kemerdekaan RI
+                </button>
+              </div>
+            </div>
+
+            <!-- Material description text area -->
+            <div class="p-3.5 rounded-lg bg-white/5 border border-white/10">
+              <p class="text-gray-400 font-medium mb-1.5">Input Teks Deskripsi Materi / Bab:</p>
+              <textarea id="ai-material-input" rows="2" class="w-full bg-transparent border-none focus:ring-0 text-gray-800 dark:text-gray-200 resize-none font-medium leading-relaxed p-0 outline-none placeholder-gray-500 text-xs" placeholder="Ketik deskripsi materi pelajaran di sini...">Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.</textarea>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="flex justify-center">
+              <button id="btn-generate-ai" onclick="generateAiExam()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 border border-red-500/20 text-[11px] transition-all w-full cursor-pointer shadow-lg shadow-red-500/20">
+                <i class="fas fa-wand-magic-sparkles"></i> Hubungkan Ke AI & Buat Soal
+              </button>
+            </div>
+
+            <!-- Results area -->
+            <div id="ai-simulator-result" class="space-y-2">
+              <div class="p-3.5 rounded-lg bg-red-500/5 border border-red-500/10 space-y-2" data-explanation="Glukosa adalah hasil fotosintesis yang digunakan sebagai cadangan energi utama tumbuhan, sedangkan Oksigen dilepaskan ke udara.">
+                <p class="text-red-500 font-bold flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Hasil Soal Rekomendasi AI:</p>
+                <p id="ai-sim-question" class="font-bold text-gray-700 dark:text-gray-300">"Apakah zat hasil fotosintesis tumbuhan yang digunakan sebagai sumber energi utama?"</p>
+                
+                <div id="ai-sim-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-semibold pt-1">
+                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="true">
+                    <span>A. Glukosa</span>
+                    <i class="fas fa-check text-emerald-500 hidden"></i>
+                  </button>
+                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                    <span>B. Karbondioksida</span>
+                    <i class="fas fa-times text-red-500 hidden"></i>
+                  </button>
+                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                    <span>C. Air</span>
+                    <i class="fas fa-times text-red-500 hidden"></i>
+                  </button>
+                  <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                    <span>D. Nitrogen</span>
+                    <i class="fas fa-times text-red-500 hidden"></i>
+                  </button>
+                </div>
+                <!-- Feedback text -->
+                <p id="ai-sim-feedback" class="text-[9px] font-semibold mt-2 hidden p-2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </section>
+<!-- Fitur Unggulan ISchool Section (Live Search & 25 grids) -->
+  <section id="fitur" class="w-full bg-[#100d0e] light-theme-bg py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Title Area -->
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+        <span class="text-xs font-semibold text-red-500 uppercase tracking-widest">Semua Kebutuhan Sekolah</span>
+        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Fitur Unggulan ISchool</h2>
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Semua yang Anda butuhkan untuk memodernisasi sekolah, yayasan, dan operasional pendidikan dalam satu ekosistem platform yang padu.
+        </p>
+      </div>
+
+    <!-- Live Search & Categories Filter bar (Onesoft style) -->
+    <div class="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Live Search Box -->
+      <div class="relative w-full md:max-w-md">
+        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+        <input type="text" id="search-features" placeholder="Cari fitur sekolah..." class="w-full text-sm pl-12 pr-4 py-3 rounded-lg glass-input">
+      </div>
+
+      <!-- Categories filter pills -->
+      <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+        <button class="category-filter-btn active text-xs font-bold px-4 py-2.5 rounded-lg border border-white/10 glass-panel hover:border-red-500/30 transition-all active:bg-red-500" data-category="semua">
+          Semua Fitur
+        </button>
+        <button class="category-filter-btn text-xs font-bold px-4 py-2.5 rounded-lg border border-white/10 glass-panel hover:border-red-500/30 transition-all" data-category="akademik">
+          Akademik & Rapor
+        </button>
+        <button class="category-filter-btn text-xs font-bold px-4 py-2.5 rounded-lg border border-white/10 glass-panel hover:border-red-500/30 transition-all" data-category="finansial">
+          Finansial & POS
+        </button>
+        <button class="category-filter-btn text-xs font-bold px-4 py-2.5 rounded-lg border border-white/10 glass-panel hover:border-red-500/30 transition-all" data-category="server">
+          Server & Keamanan
+        </button>
+        <button class="category-filter-btn text-xs font-bold px-4 py-2.5 rounded-lg border border-white/10 glass-panel hover:border-red-500/30 transition-all" data-category="integrasi">
+          Integrasi & Ekstra
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Grids of features (loaded dynamically by script.js) -->
+    <div id="features-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 25 features are generated here dynamically -->
+    </div>
+
+    </div>
+  </section>
+
+  <!-- Pricing Plans Section -->
+  <section id="harga" class="w-full py-20 md:py-28 light-theme-bg">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Header with Title & Selector Row -->
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-12 select-none">
+        <span class="text-xs font-bold text-red-500 uppercase tracking-widest">Investasi Pendidikan Terbaik</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white pricing-heading-main">Pilihan Paket Sesuai Kebutuhan Anda</h2>
+      <p class="text-sm text-gray-500 leading-relaxed">
+        Investasi yang transparan, terjangkau, dan sebanding dengan lonjakan efisiensi operasional yayasan sekolah Anda.
+      </p>
+    </div>
+
+    <!-- Double Selectors Row -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8 select-none max-w-7xl mx-auto border-b border-gray-200/40 dark:border-white/5 pb-6">
+      
+      <!-- Category Selector: Sekolah Mandiri / Yayasan -->
+      <div class="flex bg-white dark:bg-[#121212] p-1 rounded-full text-xs font-semibold select-none border border-gray-300 dark:border-white/10 shadow-sm">
+        <button id="pkg-sekolah-btn" class="px-5 py-2 rounded-full transition-all bg-neutral-900 text-white dark:bg-white dark:text-black font-bold border-none shadow-none">
+          Sekolah Mandiri
+        </button>
+        <button id="pkg-yayasan-btn" class="px-5 py-2 rounded-full transition-all text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-transparent border-none shadow-none">
+          Yayasan & Group
+        </button>
+      </div>
+
+      <!-- Billing Selector: Bulanan / Tahunan -->
+      <div class="flex items-center gap-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+        <span>Bulanan</span>
+        <label class="switch-container">
+          <input type="checkbox" id="billing-toggle" class="sr-only">
+          <div class="switch-track">
+            <div class="switch-knob"></div>
+          </div>
+        </label>
+        <span class="text-red-500 font-bold flex items-center gap-1">
+          Tahunan 
+          <span class="text-[9px] bg-emerald-500/10 text-emerald-400 font-bold px-1.5 py-0.5 rounded-full border border-emerald-500/25">Hemat 20%</span>
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Pricing Grid (Strictly 3 Shadowless Cards) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+      
+      <!-- Tier 1: Starter -->
+      <div class="pricing-card glass-card p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden border border-[#441113]/30 dark:border-[#441113] shadow-none pricing-fade-el">
+        <!-- Top badge slot -->
+        <div class="flex justify-between items-start">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Starter</span>
+          <span id="starter-discount-badge" class="hidden text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">Hemat 20%</span>
+        </div>
+
+        <div class="space-y-6 mt-4">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 dark:text-white" id="starter-title">Dasar</h4>
+            <p class="text-xs text-gray-500 mt-1.5 leading-relaxed" id="starter-subtitle">Sempurna untuk sekolah/lembaga rintisan mandiri.</p>
+          </div>
+
+          <!-- Horizontal Price Alignment -->
+          <div class="border-y border-gray-200/50 dark:border-white/5 py-4">
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-normal text-gray-400 line-through" id="starter-old-price">Rp 625.000</span>
+              <span class="text-2xl font-black text-red-500" id="starter-price">Rp 499.000</span>
+              <span class="text-xs font-semibold text-gray-400">/bulan</span>
+            </div>
+            <p class="text-[10px] text-gray-400 font-semibold mt-1" id="starter-desc">Termasuk 500 murid/tahun</p>
+          </div>
+
+          <!-- Solid Dark Red Button -->
+          <button class="btn-register-cta bg-[#441113] hover:bg-[#551618] text-white w-full py-3 px-6 rounded-xl text-xs font-bold transition-all shadow-none">
+            Mulai Uji Coba Gratis
+          </button>
+
+          <!-- Core features checklist with icons -->
+          <ul id="starter-features" class="space-y-3.5 text-xs text-gray-500 dark:text-gray-400 pt-2 border-b border-gray-200/50 dark:border-white/5 pb-6">
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Akademik & Rapor Sekolah</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Modul nilai rapor terintegrasi kurikulum nasional"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Penerimaan Siswa Baru (PPDB)</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Penerimaan dan registrasi berkas pendaftaran online"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Presensi Kehadiran QR Siswa</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Scan kehadiran real-time via AbsenQR ponsel"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Buku Kas Keuangan Sekolah</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Manajemen buku kas, SPP, dan tagihan wali murid"></i></li>
+            <li class="flex items-center text-gray-400/50 line-through gap-2.5"><i class="fas fa-times text-gray-400 opacity-50"></i> Ujian Online CBT Anti-Cheat</li>
+            <li class="flex items-center text-gray-400/50 line-through gap-2.5"><i class="fas fa-times text-gray-400 opacity-50"></i> Dedicated Server Pod & VPS</li>
+          </ul>
+        </div>
+
+        <!-- Lower Shaded Box Add-ons with Gold Badges -->
+        <div class="pricing-shaded-box p-4 rounded-xl space-y-3 mt-6">
+          <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200/20 dark:border-white/5 pb-2">Integrasi Tambahan</p>
+          <div id="starter-shaded-items" class="space-y-2.5">
+            <div class="flex items-center text-gray-400/50 line-through gap-2 text-[10px]"><i class="fas fa-times text-gray-400 opacity-50"></i> WhatsApp Gateway</div>
+            <div class="flex items-center text-gray-400/50 line-through gap-2 text-[10px]"><i class="fas fa-times text-gray-400 opacity-50"></i> Custom Domain (.sch.id)</div>
+            <div class="flex items-center text-gray-400/50 line-through gap-2 text-[10px]"><i class="fas fa-times text-gray-400 opacity-50"></i> Server Booster CPU & RAM</div>
+            <div class="flex items-center text-gray-400/50 line-through gap-2 text-[10px]"><i class="fas fa-times text-gray-400 opacity-50"></i> Priority Support 24/7</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 2: Professional -->
+      <div class="pricing-card glass-card p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden border border-gray-200 dark:border-white/5 shadow-none pricing-fade-el">
+        <!-- Top badge slot -->
+        <div class="flex justify-between items-start">
+          <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Professional</span>
+          <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 border border-red-500/25">Best Value</span>
+        </div>
+
+        <div class="space-y-6 mt-4">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 dark:text-white" id="pro-title">Paket Unggulan</h4>
+            <p class="text-xs text-gray-500 mt-1.5 leading-relaxed" id="pro-subtitle">Untuk sekolah modern berskala menengah-besar.</p>
+          </div>
+
+          <!-- Horizontal Price Alignment -->
+          <div class="border-y border-gray-200/50 dark:border-white/5 py-4">
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-normal text-gray-400 line-through" id="pro-old-price">Rp 1.200.000</span>
+              <span class="text-2xl font-black text-red-500" id="pro-price">Rp 1.200.000</span>
+              <span class="text-xs font-semibold text-gray-400">/bulan</span>
+            </div>
+            <p class="text-[10px] text-gray-400 font-semibold mt-1" id="pro-desc">Termasuk 2.000 murid/tahun</p>
+          </div>
+
+          <!-- Outlined Button -->
+          <button class="btn-register-cta border border-gray-800 text-gray-900 dark:border-white/30 dark:text-white dark:hover:bg-white/5 w-full py-3 px-6 rounded-xl text-xs font-bold transition-all shadow-none bg-transparent">
+            Mulai Uji Coba Gratis
+          </button>
+
+          <!-- Core features checklist with icons -->
+          <ul id="pro-features" class="space-y-3.5 text-xs text-gray-500 dark:text-gray-400 pt-2 border-b border-gray-200/50 dark:border-white/5 pb-6">
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Akademik & Rapor Sekolah</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Modul nilai rapor terintegrasi kurikulum nasional"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Penerimaan Siswa Baru (PPDB)</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Penerimaan dan registrasi berkas pendaftaran online"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Presensi Kehadiran QR Siswa</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Scan kehadiran real-time via AbsenQR ponsel"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Buku Kas Keuangan Sekolah</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Manajemen buku kas, SPP, dan tagihan wali murid"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Ujian Online CBT Anti-Cheat</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Simulator ujian online berdaya AI dengan timer"></i></li>
+            <li class="flex items-center text-gray-400/50 line-through gap-2.5"><i class="fas fa-times text-gray-400 opacity-50"></i> Dedicated Server Pod & VPS</li>
+          </ul>
+        </div>
+
+        <!-- Lower Shaded Box Add-ons with Gold Badges -->
+        <div class="pricing-shaded-box p-4 rounded-xl space-y-3 mt-6">
+          <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200/20 dark:border-white/5 pb-2">Integrasi Tambahan</p>
+          <div id="pro-shaded-items" class="space-y-2.5">
+            <div class="flex items-center justify-between text-[10px]"><span class="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold"><i class="fas fa-check text-red-500"></i> WhatsApp Gateway</span> <span class="gold-badge">TERINTEGRASI</span></div>
+            <div class="flex items-center justify-between text-[10px]"><span class="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold"><i class="fas fa-check text-red-500"></i> Custom Domain</span> <span class="gold-badge">TERINTEGRASI</span></div>
+            <div class="flex items-center justify-between text-[10px]"><span class="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold"><i class="fas fa-check text-red-500"></i> Server Booster</span> <span class="gold-badge">TERINTEGRASI</span></div>
+            <div class="flex items-center text-gray-400/50 line-through gap-2 text-[10px]"><i class="fas fa-times text-gray-400 opacity-50"></i> Priority Support 24/7</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 3: Enterprise -->
+      <div class="pricing-card glass-card p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden border border-gray-200 dark:border-white/5 shadow-none pricing-fade-el">
+        <!-- Top badge slot -->
+        <div class="flex justify-between items-start">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Enterprise</span>
+          <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/25">Multi-School</span>
+        </div>
+
+        <div class="space-y-6 mt-4">
+          <div>
+            <h4 class="text-xl font-bold text-gray-900 dark:text-white" id="enterprise-title">Paket Yayasan</h4>
+            <p class="text-xs text-gray-500 mt-1.5 leading-relaxed" id="enterprise-subtitle">Multi-sekolah, yayasan besar, & kustomisasi server.</p>
+          </div>
+
+          <!-- Horizontal Price Alignment -->
+          <div class="border-y border-gray-200/50 dark:border-white/5 py-4">
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-2xl font-black text-red-500" id="enterprise-price">Hubungi Kami</span>
+              <span class="text-xs font-semibold text-gray-400" id="enterprise-unit"></span>
+            </div>
+            <p class="text-[10px] text-gray-400 font-semibold mt-1" id="enterprise-desc">Murid Tidak Terbatas</p>
+          </div>
+
+          <!-- Outlined Button -->
+          <button class="btn-register-cta border border-gray-800 text-gray-900 dark:border-white/30 dark:text-white dark:hover:bg-white/5 w-full py-3 px-6 rounded-xl text-xs font-bold transition-all shadow-none bg-transparent">
+            Hubungi Sales
+          </button>
+
+          <!-- Core features checklist with icons -->
+          <ul id="enterprise-features" class="space-y-3.5 text-xs text-gray-500 dark:text-gray-400 pt-2 border-b border-gray-200/50 dark:border-white/5 pb-6">
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Akademik & Rapor Sekolah</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Modul nilai rapor terintegrasi kurikulum nasional"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Penerimaan Siswa Baru (PPDB)</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Penerimaan dan registrasi berkas pendaftaran online"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Presensi Kehadiran QR Siswa</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Scan kehadiran real-time via AbsenQR ponsel"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Buku Kas Keuangan Sekolah</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Manajemen buku kas, SPP, dan tagihan wali murid"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Ujian Online CBT Anti-Cheat</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Simulator ujian online berdaya AI dengan timer"></i></li>
+            <li class="flex items-center justify-between"><span class="flex items-center gap-2.5"><i class="fas fa-check text-red-500"></i> Dedicated Server Pod & VPS</span> <i class="fas fa-info-circle text-[10px] text-gray-400 hover:text-red-500 cursor-help" title="Virtual private server terisolasi dengan performa booster"></i></li>
+          </ul>
+        </div>
+
+        <!-- Lower Shaded Box Add-ons with Gold Badges -->
+        <div class="pricing-shaded-box p-4 rounded-xl space-y-3 mt-6">
+          <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200/20 dark:border-white/5 pb-2">Integrasi Tambahan</p>
+          <div id="enterprise-shaded-items" class="space-y-2.5">
+            <div class="flex items-center justify-between text-[10px]"><span class="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold"><i class="fas fa-check text-red-500"></i> WhatsApp Gateway</span> <span class="gold-badge">FULL AKSES</span></div>
+            <div class="flex items-center justify-between text-[10px]"><span class="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold"><i class="fas fa-check text-red-500"></i> Custom Domain</span> <span class="gold-badge">FULL AKSES</span></div>
+            <div class="flex items-center justify-between text-[10px]"><span class="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold"><i class="fas fa-check text-red-500"></i> Server Booster</span> <span class="gold-badge">FULL AKSES</span></div>
+            <div class="flex items-center justify-between text-[10px]"><span class="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold"><i class="fas fa-check text-red-500"></i> Priority Support 24/7</span> <span class="gold-badge">FULL AKSES</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Small footnote -->
+    <div class="text-center mt-8 text-[10px] text-gray-400/80 font-medium">
+      * Harga belum termasuk biaya penyiapan infrastruktur server kustom awal dan pajak daerah setempat.
+    </div>
+
+    </div>
+
+    </div>
+  </section>
+
+  <!-- Pertanyaan yang Sering Diajukan (FAQ Accordion) -->
+  <section id="faq" class="w-full py-20 md:py-28 light-theme-bg">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      
+      <!-- Left Column: Copywriting (Garuda Nexa Style Split) -->
+      <div class="lg:col-span-5 space-y-6 text-left select-none lg:sticky lg:top-28">
+        <h2 class="text-3xl sm:text-4.5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight pricing-heading-main">
+          Answers to your<br>top questions
+        </h2>
+        <p class="text-sm text-gray-500 leading-relaxed max-w-sm">
+          Everything you need to know about digitalizing your school and managing it smoothly with ISchool.
+        </p>
+        <div class="pt-2">
+          <button class="btn-register-cta inline-block bg-[#2c1b18] hover:bg-[#1a0e0c] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-semibold text-xs py-3 px-6 rounded-full transition-all shadow-none">
+            Contact support
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Accordions list -->
+      <div class="lg:col-span-7 space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item rounded-xl border overflow-hidden transition-all duration-300">
+          <button class="faq-header w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold tracking-tight text-gray-800 dark:text-gray-100 focus:outline-none">
+            <span>Bagaimana cara mendaftar sekolah melalui aplikasi ini?</span>
+            <i class="fas fa-chevron-down faq-icon text-xs text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer px-6 text-xs sm:text-sm text-gray-500 leading-relaxed">
+            Sangat mudah! Klik tombol "Coba Gratis" di atas navigasi, isi data administrasi sekolah singkat Anda pada formulir modal pendaftaran, dan asisten CS kami akan mengirimkan tautan kredensial login dashboard uji coba 30 hari melalui WhatsApp dalam waktu 10 menit.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item rounded-xl border overflow-hidden transition-all duration-300">
+          <button class="faq-header w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold tracking-tight text-gray-800 dark:text-gray-100 focus:outline-none">
+            <span>Berapa biaya penggunannya?</span>
+            <i class="fas fa-chevron-down faq-icon text-xs text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer px-6 text-xs sm:text-sm text-gray-500 leading-relaxed">
+            Kami memiliki tiga tier harga berskala mulai dari Paket Dasar seharga Rp 499.000/bulan untuk sekolah rintisan mandiri, hingga Rp 1.200.000/bulan untuk paket unggulan terintegrasi penuh. Apabila memilih skema tagihan tahunan, Anda mendapatkan potongan harga spesial sebesar 20%.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item rounded-xl border overflow-hidden transition-all duration-300">
+          <button class="faq-header w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold tracking-tight text-gray-800 dark:text-gray-100 focus:outline-none">
+            <span>Apakah fitur POS Kantin dan E-Wallet saling terhubung?</span>
+            <i class="fas fa-chevron-down faq-icon text-xs text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer px-6 text-xs sm:text-sm text-gray-500 leading-relaxed">
+            Ya, terintegrasi sepenuhnya secara otomatis! Siswa dibekali kartu e-wallet RFID berdesain ID Card sekolah. Ketika melakukan transaksi di kasir kantin pintar, saldo otomatis didebit secepat kilat dengan tapping RFID dan riwayat serta struk belanja langsung dikirim ke WhatsApp wali murid.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item rounded-xl border overflow-hidden transition-all duration-300">
+          <button class="faq-header w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold tracking-tight text-gray-800 dark:text-gray-100 focus:outline-none">
+            <span>Apakah data aman?</span>
+            <i class="fas fa-chevron-down faq-icon text-xs text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer px-6 text-xs sm:text-sm text-gray-500 leading-relaxed">
+            Sangat terjamin! Seluruh database dan transaksi dilindungi enkripsi SSL end-to-end, dicadangkan secara berkala di cloud storage terpisah. Sekolah di paket Enterprise menikmati keunggulan Dedicated Server Pod terisolasi demi menjamin privasi database yayasan seutuhnya.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item rounded-xl border overflow-hidden transition-all duration-300">
+          <button class="faq-header w-full text-left px-6 py-5 flex items-center justify-between text-sm sm:text-base font-bold tracking-tight text-gray-800 dark:text-gray-100 focus:outline-none">
+            <span>Apakah ISchool mendukung custom domain?</span>
+            <i class="fas fa-chevron-down faq-icon text-xs text-gray-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer px-6 text-xs sm:text-sm text-gray-500 leading-relaxed">
+            Tentu saja! ISchool memfasilitasi integrasi custom domain sekolah (.sch.id) untuk website profil, portal registrasi PPDB, maupun subdomain login sistem informasi akademik (SIAK) Anda guna memperkokoh citra prestisius sekolah Anda.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / CTA Bottom (Onesoft style bottom banner) -->
+  <section class="w-full py-12 md:pb-24 light-theme-bg">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="glass-card p-8 md:p-16 rounded-xl text-center relative overflow-hidden border border-red-500/10">
+      
+      <!-- Background glowing ball -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-red-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-xl mx-auto space-y-6 relative z-10">
+        <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Siap Memulai Modernisasi Sekolah Anda?</h3>
+        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+          Tingkatkan martabat dan kenyamanan belajar mengajar dengan melangkah ke platform masa depan bersama ISchool sekarang.
+        </p>
+
+        <!-- Dynamic form search container -->
+        <div class="flex flex-col sm:flex-row items-center gap-3 pt-4">
+          <input type="email" placeholder="Masukkan email sekolah Anda..." required class="w-full text-sm px-4 py-3.5 rounded-lg glass-input">
+          <button class="btn-register-cta btn-glow-red w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold py-3.5 px-6 rounded-lg text-xs transition-colors">
+            Coba Gratis 30 Hari
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-[#0b0708] text-gray-500 py-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-10 items-stretch">
+      
+      <!-- Branding Column -->
+      <div class="md:col-span-4 space-y-5">
+        <a href="#" class="flex items-center gap-2.5 group">
+          <img src="img/logo/logoischool.png" alt="ISchool Logo" class="h-8 w-auto object-contain transition-all duration-300" decoding="async">
+          <span class="text-lg font-semibold text-gradient-red">ISchool</span>
+        </a>
+        <p class="text-xs leading-relaxed text-gray-400">
+          Platform manajemen sekolah terdepan di Indonesia. Hadir untuk mempermudah operasional sekolah dengan sistem yang modern, canggih, terenkripsi, dan terintegrasi penuh.
+        </p>
+        <div class="flex items-center gap-4 text-sm pt-2">
+          <a href="#" class="text-gray-500 hover:text-red-500 transition-colors"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-gray-500 hover:text-red-500 transition-colors"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-500 hover:text-red-500 transition-colors"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Links Column 1: Product -->
+      <div class="md:col-span-2 space-y-4">
+        <h5 class="text-xs font-bold text-white uppercase tracking-widest">Produk</h5>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" class="hover:text-red-500 transition-colors">PPDB Online</a></li>
+          <li><a href="#" class="hover:text-red-500 transition-colors">POS Kantin</a></li>
+          <li><a href="#" class="hover:text-red-500 transition-colors">E-Wallet Siswa</a></li>
+          <li><a href="#" class="hover:text-red-500 transition-colors">Absensi QR</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2: Company -->
+      <div class="md:col-span-2 space-y-4">
+        <h5 class="text-xs font-bold text-white uppercase tracking-widest">Perusahaan</h5>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" class="hover:text-red-500 transition-colors">Tentang Kami</a></li>
+          <li><a href="#" class="hover:text-red-500 transition-colors">Harga</a></li>
+          <li><a href="#" class="hover:text-red-500 transition-colors">Refund Policy</a></li>
+          <li><a href="#" class="hover:text-red-500 transition-colors">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 3: Contact Info -->
+      <div class="md:col-span-4 space-y-4">
+        <h5 class="text-xs font-bold text-white uppercase tracking-widest">Hubungi Kami</h5>
+        <ul class="space-y-3.5 text-xs">
+          <li class="flex items-start gap-2.5"><i class="fas fa-map-marker-alt text-red-500 mt-0.5"></i> Metro, Lampung, Indonesia</li>
+          <li class="flex items-center gap-2.5"><i class="fas fa-envelope text-red-500"></i> info@ischool.com</li>
+          <li class="flex items-center gap-2.5"><i class="fas fa-phone-alt text-red-500"></i> +62 812 3456 7890</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Copyright Block -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-center flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+      <p>© 2026 ISchool. All rights reserved. Made for Indonesian Schools.</p>
+      <div class="flex items-center gap-4 text-xs text-gray-500">
+        <a href="#" class="hover:text-red-500 transition-colors">Syarat & Ketentuan</a>
+        <span class="text-gray-700 select-none">|</span>
+        <a href="#" class="hover:text-red-500 transition-colors">Kebijakan Privasi</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Link Custom Script -->
+  <script src="script.js"></script>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Kembali ke atas" title="Kembali ke atas"
+    class="fixed bottom-8 right-8 z-[999] flex items-center justify-center w-11 h-11 rounded-full
+           bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-500/30
+           opacity-0 pointer-events-none
+           transition-all duration-300 ease-in-out
+           translate-y-4"
+    style="will-change:transform,opacity">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <style>
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }, { passive: true });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
