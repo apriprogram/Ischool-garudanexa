@@ -504,6 +504,19 @@ body.light-theme header .relative i.fa-search {
   color: #4b5563 !important;
 }
 
+/* Light Theme Header Icon Buttons */
+body.light-theme #theme-toggle,
+body.light-theme #theme-toggle-mobile,
+body.light-theme #mobile-menu-btn {
+  color: #4b5563 !important;
+}
+
+body.light-theme #theme-toggle:hover,
+body.light-theme #theme-toggle-mobile:hover,
+body.light-theme #mobile-menu-btn:hover {
+  color: #111827 !important;
+}
+
 /* Premium Desktop Hover Menu Links Animation */
 header nav a {
   position: relative;
