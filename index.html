@@ -709,10 +709,101 @@
   <!-- Split Spotlight Feature Section (CBT & AI Focus) -->
   <section class="w-full py-16 md:py-24 light-theme-bg">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-center">
       
-      <!-- Left Column: Text side (Changed from lg:col-span-6 to lg:col-span-5 to exactly match Coba Simulasi!) -->
-      <div class="lg:col-span-5 space-y-6">
+      <!-- Left Column: Graphical Mockup side (Swapped & matching Coba Simulasi!) -->
+      <div class="md:col-span-7 flex flex-col gap-6">
+        
+        <!-- CBT Section Tab Switcher (Matching Coba Simulasi layout) -->
+        <div class="w-full glass-panel p-2 rounded-lg flex flex-wrap md:flex-nowrap gap-2 border border-white/5">
+          <button class="cbt-sec-tab-btn active border-red-500 text-red-500 flex-1 text-center py-2.5 rounded-lg border font-bold text-xs flex items-center justify-center gap-2 transition-all" data-topic="matematika" data-text="Matematika adalah ilmu tentang logika mengenai bentuk, susunan, besaran, dan konsep-konsep yang saling berhubungan satu sama lain.">
+            Matematika
+          </button>
+          <button class="cbt-sec-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-topic="kimia" data-text="Kimia adalah cabang dari ilmu fisik yang mempelajari tentang susunan, struktur, sifat, dan perubahan materi.">
+            Kimia
+          </button>
+          <button class="cbt-sec-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-topic="biologi" data-text="Biologi adalah kajian tentang kehidupan dan organisme hidup, termasuk struktur fisik, proses kimia, interaksi molekuler, fisiologi, dan evolusi.">
+            Biologi
+          </button>
+          <button class="cbt-sec-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-topic="sejarah" data-text="Sejarah adalah ilmu yang menyelidiki perkembangan peristiwa dan kejadian-kejadian di masa lampau yang memiliki pengaruh bagi kehidupan manusia.">
+            Sejarah
+          </button>
+        </div>
+
+        <!-- Main Display Frosted Box (Matching Coba Simulasi min-h-[460px] layout) -->
+        <div class="w-full glass-card p-6 md:p-8 rounded-xl min-h-[460px] flex flex-col justify-between relative overflow-hidden">
+          
+          <!-- Widget Glow ring background -->
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-red-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+
+          <!-- PANEL 1: AI GENERATOR SOAL (TEACHER PANEL) -->
+          <div id="cbt-panel-generator" class="cbt-section-panel space-y-4 animate-fadeIn">
+            <!-- Mockup top bar -->
+            <div class="flex items-center justify-between border-b border-white/5 pb-4">
+              <div>
+                <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Asisten Generator Soal AI</span>
+                <h4 class="text-lg font-bold tracking-tight">Pembuat Soal Ujian Otomatis</h4>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-red-500/10 text-red-500 border border-red-500/20">AI Active</span>
+            </div>
+
+            <!-- Mockup inner content -->
+            <div class="space-y-4 text-xs">
+              <!-- Material description text area -->
+              <div class="p-3.5 rounded-lg bg-white/5 border border-white/10">
+                <p class="text-gray-400 font-medium mb-1.5">Input Teks Deskripsi Materi / Bab:</p>
+                <textarea id="ai-material-input" rows="3" style="overflow-y: hidden;" class="w-full bg-transparent border-none focus:ring-0 text-gray-800 dark:text-gray-200 resize-none font-medium leading-relaxed p-0 outline-none placeholder-gray-500 text-xs" placeholder="Ketik deskripsi materi pelajaran di sini...">Matematika adalah ilmu tentang logika mengenai bentuk, susunan, besaran, dan konsep-konsep yang saling berhubungan satu sama lain.</textarea>
+              </div>
+
+              <!-- Generate Button -->
+              <div class="flex justify-center">
+                <button id="btn-generate-ai" onclick="generateAiExam()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 border border-red-500/20 text-[11px] transition-all w-full cursor-pointer shadow-lg shadow-red-500/20">
+                  <i class="fas fa-wand-magic-sparkles"></i> Hubungkan Ke AI & Buat Soal
+                </button>
+              </div>
+
+              <!-- Results area -->
+              <div id="ai-simulator-result" class="space-y-2">
+                <div class="p-3.5 rounded-lg bg-red-500/5 border border-red-500/10 space-y-2" data-explanation="g(2) = 2^2 - 1 = 3. Maka f(g(2)) = f(3) = 2(3) + 3 = 9.">
+                  <p class="text-red-500 font-bold flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Hasil Soal Rekomendasi AI:</p>
+                  <p id="ai-sim-question" class="font-bold text-gray-700 dark:text-gray-300">"Jika f(x) = 2x + 3 dan g(x) = x^2 - 1, berapakah nilai (f ∘ g)(2)?"</p>
+                  
+                  <div id="ai-sim-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-semibold pt-1">
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="true">
+                      <span>A. 9</span>
+                      <i class="fas fa-check text-emerald-500 hidden"></i>
+                    </button>
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                      <span>B. 7</span>
+                      <i class="fas fa-times text-red-500 hidden"></i>
+                    </button>
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                      <span>C. 5</span>
+                      <i class="fas fa-times text-red-500 hidden"></i>
+                    </button>
+                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
+                      <span>D. 11</span>
+                      <i class="fas fa-times text-red-500 hidden"></i>
+                    </button>
+                  </div>
+                  <!-- Feedback text -->
+                  <p id="ai-sim-feedback" class="ai-sim-feedback text-[9px] font-semibold mt-2 hidden p-2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom bar of the frosted widget (Matching Coba Simulasi) -->
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500">
+            <span class="flex items-center gap-1"><i class="fas fa-lock text-red-500"></i> Sandbox Demo Enkripsi</span>
+            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-400"></i> Sinkronisasi Live</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Text side (Swapped & matching Coba Simulasi!) -->
+      <div class="md:col-span-5 space-y-6">
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
           Sistem Ujian Online (CBT) & <span class="text-gradient-red">AI Pintar Generator Soal</span>
         </h2>
@@ -746,98 +837,11 @@
         </button>
       </div>
 
-      <!-- Right Column: Graphical Mockup side (Changed from lg:col-span-6 to lg:col-span-7 flex flex-col gap-6 to exactly match Coba Simulasi!) -->
-      <div class="lg:col-span-7 flex flex-col gap-6">
-        
-        <!-- CBT Section Tab Switcher (Matching Coba Simulasi layout) -->
-        <div class="w-full glass-panel p-2 rounded-lg flex flex-wrap md:flex-nowrap gap-2 border border-white/5">
-          <button class="cbt-sec-tab-btn active border-red-500 text-red-500 flex-1 text-center py-2.5 rounded-lg border font-bold text-xs flex items-center justify-center gap-2 transition-all" data-topic="fotosintesis" data-text="Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.">
-            Fotosintesis
-          </button>
-          <button class="cbt-sec-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-topic="gravitasi" data-text="Hukum gravitasi Newton menyatakan gaya tarik gravitasi dua benda sebanding dengan massa masing-masing dan berbanding terbalik dengan kuadrat jarak keduanya.">
-            Gravitasi
-          </button>
-          <button class="cbt-sec-tab-btn flex-1 text-center py-2.5 rounded-lg border border-transparent font-bold text-xs flex items-center justify-center gap-2 transition-all" data-topic="kemerdekaan" data-text="Proklamasi Kemerdekaan Indonesia dibacakan oleh Soekarno pada tanggal 17 Agustus 1945 di Jalan Pegangsaan Timur No. 56, Jakarta.">
-            Kemerdekaan RI
-          </button>
-        </div>
-
-        <!-- Main Display Frosted Box (Matching Coba Simulasi min-h-[460px] layout) -->
-        <div class="w-full glass-card p-6 md:p-8 rounded-xl min-h-[460px] flex flex-col justify-between relative overflow-hidden">
-          
-          <!-- Widget Glow ring background -->
-          <div class="absolute -top-12 -right-12 w-48 h-48 bg-red-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
-
-          <!-- PANEL 1: AI GENERATOR SOAL (TEACHER PANEL) -->
-          <div id="cbt-panel-generator" class="cbt-section-panel space-y-4 animate-fadeIn">
-            <!-- Mockup top bar -->
-            <div class="flex items-center justify-between border-b border-white/5 pb-4">
-              <div>
-                <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Asisten Generator Soal AI</span>
-                <h4 class="text-lg font-bold tracking-tight">Pembuat Soal Ujian Otomatis</h4>
-              </div>
-              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-red-500/10 text-red-500 border border-red-500/20">AI Active</span>
-            </div>
-
-            <!-- Mockup inner content -->
-            <div class="space-y-4 text-xs">
-              <!-- Material description text area -->
-              <div class="p-3.5 rounded-lg bg-white/5 border border-white/10">
-                <p class="text-gray-400 font-medium mb-1.5">Input Teks Deskripsi Materi / Bab:</p>
-                <textarea id="ai-material-input" rows="3" style="overflow-y: hidden;" class="w-full bg-transparent border-none focus:ring-0 text-gray-800 dark:text-gray-200 resize-none font-medium leading-relaxed p-0 outline-none placeholder-gray-500 text-xs" placeholder="Ketik deskripsi materi pelajaran di sini...">Fotosintesis adalah proses tumbuhan mengubah air dan karbondioksida menjadi glukosa menggunakan energi cahaya matahari.</textarea>
-              </div>
-
-              <!-- Generate Button -->
-              <div class="flex justify-center">
-                <button id="btn-generate-ai" onclick="generateAiExam()" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 border border-red-500/20 text-[11px] transition-all w-full cursor-pointer shadow-lg shadow-red-500/20">
-                  <i class="fas fa-wand-magic-sparkles"></i> Hubungkan Ke AI & Buat Soal
-                </button>
-              </div>
-
-              <!-- Results area -->
-              <div id="ai-simulator-result" class="space-y-2">
-                <div class="p-3.5 rounded-lg bg-red-500/5 border border-red-500/10 space-y-2" data-explanation="Glukosa adalah hasil fotosintesis yang digunakan sebagai cadangan energi utama tumbuhan, sedangkan Oksigen dilepaskan ke udara.">
-                  <p class="text-red-500 font-bold flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Hasil Soal Rekomendasi AI:</p>
-                  <p id="ai-sim-question" class="font-bold text-gray-700 dark:text-gray-300">"Apakah zat hasil fotosintesis tumbuhan yang digunakan sebagai sumber energi utama?"</p>
-                  
-                  <div id="ai-sim-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-semibold pt-1">
-                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="true">
-                      <span>A. Glukosa</span>
-                      <i class="fas fa-check text-emerald-500 hidden"></i>
-                    </button>
-                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
-                      <span>B. Karbondioksida</span>
-                      <i class="fas fa-times text-red-500 hidden"></i>
-                    </button>
-                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
-                      <span>C. Air</span>
-                      <i class="fas fa-times text-red-500 hidden"></i>
-                    </button>
-                    <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="false">
-                      <span>D. Nitrogen</span>
-                      <i class="fas fa-times text-red-500 hidden"></i>
-                    </button>
-                  </div>
-                  <!-- Feedback text -->
-                  <p id="ai-sim-feedback" class="text-[9px] font-semibold mt-2 hidden p-2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom bar of the frosted widget (Matching Coba Simulasi) -->
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500">
-            <span class="flex items-center gap-1"><i class="fas fa-lock text-red-500"></i> Sandbox Demo Enkripsi</span>
-            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-400"></i> Sinkronisasi Live</span>
-          </div>
-
-        </div>
       </div>
-
     </div>
-  </div>
   </section>
-<!-- Fitur Unggulan ISchool Section (Live Search & 25 grids) -->
+
+  <!-- Fitur Unggulan ISchool Section (Live Search & 25 grids) -->
   <section id="fitur" class="w-full bg-[#100d0e] light-theme-bg py-20 md:py-28">
     <div class="max-w-7xl mx-auto px-6">
       
