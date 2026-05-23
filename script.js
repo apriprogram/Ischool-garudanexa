@@ -600,9 +600,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menuGridEl.innerHTML = "";
     menuItems.forEach(item => {
       const card = document.createElement("div");
-      card.className = "glass-panel rounded-lg cursor-pointer hover:border-red-500/40 hover:bg-red-500/5 transition-all flex flex-col justify-between h-[115px] overflow-hidden border border-white/5";
+      card.className = "glass-panel rounded-lg cursor-pointer hover:border-red-500/40 hover:bg-red-500/5 transition-all flex flex-col justify-between h-[145px] overflow-hidden border border-white/5";
       card.innerHTML = `
-        <div class="relative w-full h-12 bg-black/10 flex-shrink-0">
+        <div class="relative w-full h-20 bg-black/10 flex-shrink-0">
           <img src="${item.img}" alt="${item.nama}" class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
         <div class="p-2 flex-grow flex flex-col justify-between min-w-0">
