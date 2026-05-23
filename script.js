@@ -1185,94 +1185,15 @@ function initISchoolApp() {
   // Initial pricing content render
   updatePricingContent();
 
-  // --- DYNAMIC REGISTRATION/CTA MODAL SIMULATION ---
+  // --- DYNAMIC REGISTRATION/CTA SCROLL TO PRICING ---
   const registerCtaButtons = document.querySelectorAll(".btn-register-cta");
   registerCtaButtons.forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      
-      const registerModal = document.createElement("div");
-      registerModal.className = "fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/85 backdrop-blur-md";
-      registerModal.innerHTML = `
-        <div class="glass-card p-8 rounded-xl max-w-lg w-full border-red-500/10 relative">
-          <button class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors" id="close-register-modal">
-            <i class="fas fa-times text-lg"></i>
-          </button>
-          <div class="text-center mb-6">
-            <div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center text-xl mx-auto mb-4 border border-red-500/20">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <h3 class="text-2xl font-semibold text-gradient-red">Formulir Pendaftaran ISchool</h3>
-            <p class="text-xs text-gray-400 mt-2">Segera modernisasi operasional sekolah Anda dengan uji coba gratis 30 hari penuh.</p>
-          </div>
-          <form id="school-registration-form" class="space-y-4">
-            <div>
-              <label class="block text-xs font-semibold text-gray-400 mb-1.5">Nama Lengkap Pendaftar</label>
-              <input type="text" required placeholder="Budi Rahardjo, S.Pd." class="w-full text-sm px-4 py-3 rounded-lg glass-input">
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-gray-400 mb-1.5">Nama Instansi / Sekolah</label>
-              <input type="text" required placeholder="SMA Negeri 1 Jakarta" class="w-full text-sm px-4 py-3 rounded-lg glass-input">
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-semibold text-gray-400 mb-1.5">Email Pendaftar</label>
-                <input type="email" required placeholder="budi@sekolah.sch.id" class="w-full text-sm px-4 py-3 rounded-lg glass-input">
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-gray-400 mb-1.5">No. WhatsApp Aktif</label>
-                <input type="tel" required placeholder="08123456789" class="w-full text-sm px-4 py-3 rounded-lg glass-input">
-              </div>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-gray-400 mb-1.5">Paket yang Diminati</label>
-              <select class="w-full text-sm px-4 py-3 rounded-lg glass-input cursor-pointer bg-neutral-900 border border-white/10 text-white">
-                <option value="starter">Paket Dasar (Starter) - Rp 499k/bln</option>
-                <option value="professional" selected>Paket Unggulan (Professional) - Rp 1.2jt/bln</option>
-                <option value="enterprise">Paket Yayasan (Enterprise) - Custom Cloud</option>
-              </select>
-            </div>
-            <button type="submit" class="btn-glow-red w-full bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-semibold py-3.5 px-6 rounded-lg text-sm transition-all mt-4">
-              Kirim Formulir & Aktivasi Demo 30 Hari
-            </button>
-          </form>
-        </div>
-      `;
-      document.body.appendChild(registerModal);
-
-      // Close handlers
-      const closeBtn = document.getElementById("close-register-modal");
-      closeBtn.addEventListener("click", () => registerModal.remove());
-      registerModal.addEventListener("click", (evt) => {
-        if (evt.target === registerModal) registerModal.remove();
-      });
-
-      // Submit handler
-      const form = document.getElementById("school-registration-form");
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        registerModal.remove();
-        
-        // Show success alert
-        const successBox = document.createElement("div");
-        successBox.className = "fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/75 backdrop-blur-md";
-        successBox.innerHTML = `
-          <div class="glass-card p-8 rounded-xl max-w-md w-full text-center border-red-500/20 floating-widget">
-            <div class="w-16 h-16 bg-red-500/10 text-red-500 border border-red-500/30 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-              <i class="fas fa-heart"></i>
-            </div>
-            <h3 class="text-2xl font-semibold text-gradient-red mb-2">Terima Kasih!</h3>
-            <p class="text-sm text-gray-400 mb-6 leading-relaxed">
-              Formulir pendaftaran uji coba Anda telah berhasil kami terima. CS kami akan menghubungi Anda melalui WhatsApp dalam waktu maksimal 10 menit untuk memberikan kredensial login admin sekolah Anda!
-            </p>
-            <button class="btn-glow-red bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-semibold py-2.5 px-6 rounded-lg w-full text-sm">
-              Oke, Mengerti!
-            </button>
-          </div>
-        `;
-        document.body.appendChild(successBox);
-        successBox.querySelector("button").addEventListener("click", () => successBox.remove());
-      });
+      const target = document.getElementById("harga");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     });
   });
 
