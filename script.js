@@ -293,8 +293,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentCategory = "semua";
   let searchQuery = "";
+  let showAllFeatures = false; // State to toggle viewing all features
 
-
+  // Expose global function to expand features dynamically on click
+  window.revealAllFeatures = function() {
+    showAllFeatures = true;
+    renderFeatures();
+  };
 
   function renderFeatures() {
     if (!featuresGrid) return;
@@ -319,7 +324,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    filtered.forEach((fitur, index) => {
+    // Determine slice based on showAllFeatures state
+    let featuresToShow = filtered;
+    let needsLihatSemuaButton = false;
+
+    if (currentCategory === "semua" && searchQuery === "" && !showAllFeatures) {
+      featuresToShow = filtered.slice(0, 6); // Show only the first 6 features initially
+      needsLihatSemuaButton = true;
+    }
+
+    featuresToShow.forEach((fitur, index) => {
       const card = document.createElement("div");
       
       // Fixed: Strictly equal 1 column size (no bento spans, exactly 3 cards in 1 row on desktop!)
@@ -341,12 +355,29 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       featuresGrid.appendChild(card);
     });
+
+    // Render "Lihat Semua Fitur" button at the bottom of the grid if collapsed
+    if (needsLihatSemuaButton) {
+      const btnContainer = document.createElement("div");
+      btnContainer.className = "col-span-full flex justify-center mt-8 animate-fadeIn";
+      btnContainer.innerHTML = `
+        <button onclick="revealAllFeatures()" class="btn-register-cta btn-glow-red bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold py-3.5 px-8 rounded-full text-xs transition-all shadow-none border-none">
+          Lihat Semua Fitur (${filtered.length} Fitur) <i class="fas fa-chevron-down ml-2"></i>
+        </button>
+      `;
+      featuresGrid.appendChild(btnContainer);
+    }
   }
 
   // Search input event listener
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       searchQuery = e.target.value;
+      if (searchQuery !== "") {
+        showAllFeatures = true; // Auto expand when searching to see all matches
+      } else {
+        showAllFeatures = false; // Re-collapse when search query is cleared
+      }
       renderFeatures();
     });
   }
@@ -357,6 +388,11 @@ document.addEventListener("DOMContentLoaded", () => {
     headerSearch.addEventListener("input", (e) => {
       searchInput.value = e.target.value;
       searchQuery = e.target.value;
+      if (searchQuery !== "") {
+        showAllFeatures = true;
+      } else {
+        showAllFeatures = false;
+      }
       renderFeatures();
       
       // Auto scroll to features grid
@@ -376,6 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active");
       
       currentCategory = btn.getAttribute("data-category");
+      showAllFeatures = false; // Reset collapsed state when tab changes
       renderFeatures();
     });
   });
