@@ -177,7 +177,7 @@ const listFitur = [
   }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
+function initISchoolApp() {
   // --- PONDASI GLOBAL & THEME ---
   const body = document.body;
   const themeToggle = document.getElementById("theme-toggle");
@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h4 class="text-[9px] font-bold text-gray-700 dark:text-gray-200 truncate leading-tight" title="${item.nama}">${item.nama}</h4>
           <div class="flex items-center justify-between mt-1">
             <span class="text-[9px] text-red-500 font-extrabold">Rp ${item.harga.toLocaleString('id-ID')}</span>
-            <button class="w-5 h-5 rounded bg-red-500/10 text-red-500 text-[9px] flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors font-bold flex-shrink-0" onclick="event.stopPropagation(); addToCart(item);">
+            <button class="w-5 h-5 rounded bg-red-500/10 text-red-500 text-[9px] flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors font-bold flex-shrink-0" onclick="event.stopPropagation(); window.addToCartGlobal('${item.id}');">
               <i class="fas fa-plus"></i>
             </button>
           </div>
@@ -619,6 +619,11 @@ document.addEventListener("DOMContentLoaded", () => {
       menuGridEl.appendChild(card);
     });
   }
+
+  window.addToCartGlobal = function(id) {
+    const item = menuItems.find(i => i.id === id);
+    if (item) addToCart(item);
+  };
 
   function addToCart(item) {
     const existing = cart.find(i => i.id === item.id);
@@ -1835,6 +1840,12 @@ document.addEventListener("DOMContentLoaded", () => {
       window.generateAiExam();
     });
   });
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initISchoolApp);
+} else {
+  initISchoolApp();
+}
 
 
