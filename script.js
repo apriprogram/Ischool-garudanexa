@@ -581,7 +581,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Kantin POS & E-Wallet Simulator Logic
   const menuItems = [
     { id: "bakso", nama: "Bakso Mercon Khas Kantin", harga: 15000, img: "https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&q=80&w=200" },
-    { id: "fried-rice", nama: "Nasi Goreng Telur Spesial", harga: 12000, img: "https://images.unsplash.com/photo-1603133872878-6966b6807f4d?auto=format&fit=crop&q=80&w=200" },
+    { id: "fried-rice", nama: "Nasi Goreng Telur Spesial", harga: 12000, img: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=200" },
     { id: "iced-tea", nama: "Es Teh Manis Segar Jumbo", harga: 4000, img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&q=80&w=200" },
     { id: "siomay", nama: "Siomay Bandung Gurih", harga: 10000, img: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&q=80&w=200" }
   ];
@@ -600,16 +600,20 @@ document.addEventListener("DOMContentLoaded", () => {
     menuGridEl.innerHTML = "";
     menuItems.forEach(item => {
       const card = document.createElement("div");
-      card.className = "glass-panel p-3.5 rounded-lg cursor-pointer hover:border-red-500/40 hover:bg-red-500/5 transition-all flex items-center gap-3";
+      card.className = "glass-panel p-2 rounded-lg cursor-pointer hover:border-red-500/40 hover:bg-red-500/5 transition-all flex flex-col justify-between h-28";
       card.innerHTML = `
-        <img src="${item.img}" alt="${item.nama}" class="w-12 h-12 rounded-lg object-cover" loading="lazy" decoding="async">
-        <div class="flex-1 min-w-0">
-          <h4 class="text-xs font-semibold truncate leading-tight">${item.nama}</h4>
-          <p class="text-xs text-red-500 font-semibold mt-1">Rp ${item.harga.toLocaleString('id-ID')}</p>
+        <div class="relative w-full h-12 rounded-md overflow-hidden bg-black/10 flex-shrink-0">
+          <img src="${item.img}" alt="${item.nama}" class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
-        <button class="w-7 h-7 rounded-md bg-red-500/10 text-red-500 text-xs flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors font-semibold">
-          <i class="fas fa-plus"></i>
-        </button>
+        <div class="mt-1 flex-1 flex flex-col justify-between min-w-0">
+          <h4 class="text-[9px] font-bold text-gray-700 dark:text-gray-200 truncate leading-tight" title="${item.nama}">${item.nama}</h4>
+          <div class="flex items-center justify-between mt-0.5">
+            <span class="text-[9px] text-red-500 font-extrabold">Rp ${item.harga.toLocaleString('id-ID')}</span>
+            <button class="w-5 h-5 rounded bg-red-500/10 text-red-500 text-[9px] flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors font-bold flex-shrink-0" onclick="event.stopPropagation(); addToCart(item);">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
       `;
       card.addEventListener("click", () => addToCart(item));
       menuGridEl.appendChild(card);
@@ -633,8 +637,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cart.length === 0) {
       posCartEl.innerHTML = `
-        <div class="text-center py-8 text-gray-500 text-xs">
-          <i class="fas fa-shopping-basket text-2xl opacity-40 mb-2"></i>
+        <div class="text-center py-8 text-gray-500 text-[10px]">
+          <i class="fas fa-shopping-basket text-xl opacity-40 mb-1.5"></i>
           <p>Belum ada pesanan</p>
         </div>
       `;
@@ -648,16 +652,16 @@ document.addEventListener("DOMContentLoaded", () => {
       subtotal += itemPrice;
 
       const row = document.createElement("div");
-      row.className = "flex items-center justify-between border-b border-white/5 pb-2 text-xs";
+      row.className = "flex items-center justify-between border-b border-white/5 pb-2 text-[10px]";
       row.innerHTML = `
         <div class="flex-1 pr-2">
-          <p class="font-semibold leading-tight line-clamp-1">${item.nama}</p>
-          <p class="text-[10px] text-gray-500">${item.qty}x @ Rp ${item.harga.toLocaleString('id-ID')}</p>
+          <p class="font-bold leading-tight line-clamp-1">${item.nama}</p>
+          <p class="text-[8px] text-gray-500 mt-0.5">${item.qty}x @ Rp ${item.harga.toLocaleString('id-ID')}</p>
         </div>
-        <div class="flex items-center gap-2">
-          <p class="font-semibold text-red-500 text-[11px]">Rp ${itemPrice.toLocaleString('id-ID')}</p>
-          <button class="text-gray-400 hover:text-red-500 p-1" onclick="event.stopPropagation(); removeFromCart('${item.id}')">
-            <i class="fas fa-trash text-[10px]"></i>
+        <div class="flex items-center gap-1.5">
+          <p class="font-extrabold text-red-500 text-[9px]">Rp ${itemPrice.toLocaleString('id-ID')}</p>
+          <button class="text-gray-400 hover:text-red-500 p-1 flex items-center justify-center" onclick="event.stopPropagation(); removeFromCart('${item.id}')">
+            <i class="fas fa-trash text-[9px]"></i>
           </button>
         </div>
       `;
