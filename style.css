@@ -70,9 +70,7 @@ body {
 }
 
 .glass-card:hover {
-  transform: translateY(-4px) translateZ(0);
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(204, 0, 1, 0.35);
 }
 
 /* Light Theme Variables and Classes */
@@ -98,7 +96,6 @@ body.light-theme .glass-card {
 
 body.light-theme .glass-card:hover {
   background: #ffffff;
-  border-color: rgba(204, 0, 1, 0.3);
 }
 
 /* Background Glowing Blobs (Aurora) */
@@ -591,7 +588,6 @@ body.light-theme .btn-register-cta:hover {
 }
 
 .pricing-card:hover {
-  transform: scale(1.01) translateY(-2px);
   box-shadow: none !important;
 }
 
@@ -602,7 +598,6 @@ body.light-theme .pricing-card {
 }
 
 body.light-theme .pricing-card:hover {
-  border-color: #c5bfb8 !important;
   box-shadow: none !important;
 }
 
@@ -871,7 +866,6 @@ body.light-theme .mitra-logo-text {
 }
 
 .metric-card:hover {
-  border-color: rgba(204, 0, 1, 0.4);
   box-shadow: none;
 }
 
@@ -883,7 +877,6 @@ body.light-theme .metric-card {
 }
 
 body.light-theme .metric-card:hover {
-  border-color: #1f2937 !important;
   box-shadow: none;
 }
 
