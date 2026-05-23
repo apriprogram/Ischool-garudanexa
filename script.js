@@ -1289,22 +1289,38 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   window.clickAiOption = function(btn) {
-    const container = btn.closest(".p-3.5");
-    if (!container) return;
+    console.log("clickAiOption clicked:", btn);
+    const container = btn.closest(".p-3.5") || btn.closest("[data-explanation]") || document.getElementById("ai-simulator-result");
+    if (!container) {
+      console.error("clickAiOption: container not found");
+      return;
+    }
     
     const optBtns = container.querySelectorAll(".ai-opt-btn");
     const feedbackEl = container.querySelector("#ai-sim-feedback") || container.querySelector(".ai-sim-feedback");
     const isCorrect = btn.getAttribute("data-correct") === "true";
     
+    console.log("isCorrect:", isCorrect, "feedbackEl:", feedbackEl);
+
     // Reset styling of all buttons in this card
     optBtns.forEach(b => {
-      b.classList.remove("bg-emerald-500/10", "border-emerald-500/30", "text-emerald-500", "text-emerald-400", "bg-red-500/10", "border-red-500/30", "text-red-500", "text-red-400");
-      b.querySelector("i").classList.add("hidden");
+      b.classList.remove(
+        "bg-emerald-500/10", "border-emerald-500/30", "text-emerald-500", "text-emerald-400",
+        "bg-red-500/10", "border-red-500/30", "text-red-500", "text-red-400"
+      );
+      const icon = b.querySelector("i");
+      if (icon) {
+        icon.className = "fas hidden"; // reset class and hide
+      }
     });
 
+    const icon = btn.querySelector("i");
     if (isCorrect) {
       btn.classList.add("bg-emerald-500/10", "border-emerald-500/30", "text-emerald-500");
-      btn.querySelector(".fa-check").classList.remove("hidden");
+      if (icon) {
+        icon.className = "fas fa-check text-emerald-500";
+        icon.classList.remove("hidden");
+      }
       if (feedbackEl) {
         feedbackEl.classList.remove("hidden", "bg-red-500/10", "text-red-500", "border-red-500/20");
         feedbackEl.classList.add("bg-emerald-500/10", "text-emerald-500", "border-emerald-500/20");
@@ -1313,7 +1329,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else {
       btn.classList.add("bg-red-500/10", "border-red-500/30", "text-red-500");
-      btn.querySelector(".fa-times").classList.remove("hidden");
+      if (icon) {
+        icon.className = "fas fa-times text-red-500";
+        icon.classList.remove("hidden");
+      }
       if (feedbackEl) {
         feedbackEl.classList.remove("hidden", "bg-emerald-500/10", "text-emerald-500", "border-emerald-500/20");
         feedbackEl.classList.add("bg-red-500/10", "text-red-500", "border-red-500/20");
@@ -1778,7 +1797,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let optionsHtml = "";
           matchedQ.options.forEach((opt, idx) => {
             optionsHtml += `
-              <button type="button" onclick="clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="${opt.correct}">
+              <button type="button" onclick="window.clickAiOption(this)" class="ai-opt-btn p-2 rounded text-left bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-300 flex items-center justify-between outline-none cursor-pointer" data-correct="${opt.correct}">
                 <span>${opt.label}</span>
                 <i class="fas ${opt.correct ? 'fa-check text-emerald-500' : 'fa-times text-red-500'} hidden"></i>
               </button>
