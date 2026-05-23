@@ -413,7 +413,7 @@ function initISchoolApp() {
       card.innerHTML = `
         <!-- Full Bleed Top Illustration (No padding around it!) -->
         <div class="h-48 w-full overflow-hidden select-none pointer-events-none border-b border-gray-200/60 dark:border-white/5">
-          <img src="img/bg/bg1.png" alt="${fitur.nama}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+          <img src="img/product/product.jpg" alt="${fitur.nama}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async">
         </div>
         
         <!-- Bottom Content with exact padding, font sizes, and margins from reference -->
